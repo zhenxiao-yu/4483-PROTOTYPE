@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -23,6 +23,7 @@ public class RoomTemplateSO : ScriptableObject
     public GameObject prefab;
 
     [HideInInspector] public GameObject previousPrefab; // this is used to regenerate the guid if the so is copied and the prefab is changed
+
 
     #region Header ROOM CONFIGURATION
 
@@ -63,7 +64,6 @@ public class RoomTemplateSO : ScriptableObject
 
     [SerializeField] public List<Doorway> doorwayList;
 
-
     #region Tooltip
 
     [Tooltip("Each possible spawn position (used for enemies and chests) for the room in tilemap coordinates should be added to this array")]
@@ -71,7 +71,6 @@ public class RoomTemplateSO : ScriptableObject
     #endregion Tooltip
 
     public Vector2Int[] spawnPositionArray;
-
 
     /// <summary>
     /// Returns the list of Entrances for the room template
@@ -105,5 +104,4 @@ public class RoomTemplateSO : ScriptableObject
 #endif
 
     #endregion Validation
-
 }

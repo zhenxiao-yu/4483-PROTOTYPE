@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 2216799280033165227}
   - component: {fileID: 4199916327439830302}
   - component: {fileID: 3765174025940377574}
+  - component: {fileID: 510662722661750596}
   m_Layer: 13
   m_Name: DoorEW
   m_TagString: Untagged
@@ -242,6 +243,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.5, y: 5.5}
   m_EdgeRadius: 0
+--- !u!114 &510662722661750596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5578879441319861494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e90563a5e176db46ad39b3c28f079d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorCollider: {fileID: 1418891430562460673}
+  isBossRoomDoor: 0
 --- !u!1 &7260416609332673242
 GameObject:
   m_ObjectHideFlags: 0

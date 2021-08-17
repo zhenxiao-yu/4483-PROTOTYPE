@@ -3,6 +3,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(ActiveWeapon))]
 [RequireComponent(typeof(FireWeaponEvent))]
+[RequireComponent(typeof(ReloadWeaponEvent))]
 [RequireComponent(typeof(WeaponFiredEvent))]
 
 [DisallowMultipleComponent]
@@ -11,6 +12,7 @@ public class FireWeapon : MonoBehaviour
     private float fireRateCoolDownTimer = 0f;
     private ActiveWeapon activeWeapon;
     private FireWeaponEvent fireWeaponEvent;
+    private ReloadWeaponEvent reloadWeaponEvent;
     private WeaponFiredEvent weaponFiredEvent;
 
     private void Awake()
@@ -18,6 +20,7 @@ public class FireWeapon : MonoBehaviour
         // Load components.
         activeWeapon = GetComponent<ActiveWeapon>();
         fireWeaponEvent = GetComponent<FireWeaponEvent>();
+        reloadWeaponEvent = GetComponent<ReloadWeaponEvent>();
         weaponFiredEvent = GetComponent<WeaponFiredEvent>();
     }
 
@@ -85,7 +88,13 @@ public class FireWeapon : MonoBehaviour
 
         // if no ammo in the clip and the weapon doesn't have infinite clip capacity then return false.
         if (!activeWeapon.GetCurrentWeapon().weaponDetails.hasInfiniteClipCapacity && activeWeapon.GetCurrentWeapon().weaponClipRemainingAmmo <= 0)
+        {
+            // trigger a reload weapon event.
+            reloadWeaponEvent.CallReloadWeaponEvent(activeWeapon.GetCurrentWeapon(), 0);
+
             return false;
+        }
+
 
         // weapon is ready to fire - return true
         return true;

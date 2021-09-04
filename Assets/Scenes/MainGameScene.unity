@@ -277,6 +277,9 @@ MonoBehaviour:
   - poolSize: 30
     prefab: {fileID: 3704831762367981905, guid: e7548ec462fb85d40b63328f29de0101, type: 3}
     componentType: IFireable
+  - poolSize: 10
+    prefab: {fileID: 3704831762367981905, guid: 8fd920e3c97f878439a9451ef22cf6a7, type: 3}
+    componentType: IFireable
 --- !u!4 &257876847
 Transform:
   m_ObjectHideFlags: 0
@@ -1663,7 +1666,7 @@ MonoBehaviour:
     ModeOverride: 1
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3333334, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

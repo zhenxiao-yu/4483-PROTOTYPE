@@ -245,6 +245,7 @@ GameObject:
   - component: {fileID: 4014087903454987877}
   - component: {fileID: 8895127342252007773}
   - component: {fileID: 7697408492666851500}
+  - component: {fileID: 913451327931996408}
   m_Layer: 15
   m_Name: Enemy
   m_TagString: Untagged
@@ -411,6 +412,25 @@ PolygonCollider2D:
       - {x: -0.42051306, y: 0.11613096}
       - {x: 0.3990923, y: 0.11367534}
       - {x: 0.40619648, y: 1.4544868}
+--- !u!95 &913451327931996408
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5045320335855835643}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5050126326861482255
 GameObject:
   m_ObjectHideFlags: 0

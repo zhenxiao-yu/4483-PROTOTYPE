@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 239744395037126532}
   - component: {fileID: 2216138685056215045}
   - component: {fileID: 3508148081130443590}
+  - component: {fileID: 2858066293928829723}
   m_Layer: 7
   m_Name: MoveableItem
   m_TagString: Untagged
@@ -178,3 +179,22 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+--- !u!95 &2858066293928829723
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4290426862265872319}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

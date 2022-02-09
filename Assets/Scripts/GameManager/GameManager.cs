@@ -679,7 +679,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     /// </summary>
     private void RestartGame()
     {
-        SceneManager.LoadScene("MainGameScene");
+        SceneManager.LoadScene("MainMenuScene");
     }
 
     /// <summary>

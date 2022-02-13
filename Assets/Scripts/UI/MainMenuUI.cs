@@ -9,6 +9,10 @@ public class MainMenuUI : MonoBehaviour
     {
         // Play Music
         MusicManager.Instance.PlayMusic(GameResources.Instance.mainMenuMusic, 0f, 2f);
+
+
+        // Load Character selector scene additively
+        SceneManager.LoadScene("CharacterSelectorScene", LoadSceneMode.Additive);
     }
 
     /// <summary>

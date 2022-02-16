@@ -157,6 +157,10 @@ public class GameResources : MonoBehaviour
     [Tooltip("Populate with ammo icon prefab")]
     #endregion
     public GameObject ammoIconPrefab;
+    #region Tooltip
+    [Tooltip("The score prefab")]
+    #endregion
+    public GameObject scorePrefab;
 
     #region Header CHESTS
     [Space(10)]
@@ -214,6 +218,7 @@ public class GameResources : MonoBehaviour
         HelperUtilities.ValidateCheckNullValue(this, nameof(musicOffSnapshot), musicOffSnapshot); 
         HelperUtilities.ValidateCheckNullValue(this, nameof(heartPrefab), heartPrefab);
         HelperUtilities.ValidateCheckNullValue(this, nameof(ammoIconPrefab), ammoIconPrefab);
+        HelperUtilities.ValidateCheckNullValue(this, nameof(scorePrefab), scorePrefab);
         HelperUtilities.ValidateCheckNullValue(this, nameof(chestItemPrefab), chestItemPrefab);
         HelperUtilities.ValidateCheckNullValue(this, nameof(heartIcon), heartIcon);
         HelperUtilities.ValidateCheckNullValue(this, nameof(bulletIcon), bulletIcon);

@@ -69,14 +69,14 @@ public class RoomNodeGraphEditor : EditorWindow
         // Define node layout style
         RoomNodeStyle = new GUIStyle();
         RoomNodeStyle.normal.background = EditorGUIUtility.Load("node1") as Texture2D;
-        RoomNodeStyle.normal.textColor = Color.white;
+        RoomNodeStyle.normal.textColor = Color.yellow;
         RoomNodeStyle.padding = new RectOffset(NodePadding, NodePadding, NodePadding, NodePadding);
         RoomNodeStyle.border = new RectOffset(NodeBorder, NodeBorder, NodeBorder, NodeBorder);
 
         // Define selected node style
         RoomNodeSelectedStyle = new GUIStyle();
         RoomNodeSelectedStyle.normal.background = EditorGUIUtility.Load("node1 on") as Texture2D;
-        RoomNodeSelectedStyle.normal.textColor = Color.white;
+        RoomNodeSelectedStyle.normal.textColor = Color.yellow;
         RoomNodeSelectedStyle.padding = new RectOffset(NodePadding, NodePadding, NodePadding, NodePadding);
         RoomNodeSelectedStyle.border = new RectOffset(NodeBorder, NodeBorder, NodeBorder, NodeBorder);
 
@@ -112,7 +112,7 @@ public class RoomNodeGraphEditor : EditorWindow
         if (CurrentRoomNodeGraph != null)
         {
             // Draw Grid
-            DrawBackgroundGrid(GridSmall, 0.2f, Color.gray);
+            DrawBackgroundGrid(GridSmall, 0.2f, Color.black);
             DrawBackgroundGrid(GridLarge, 0.3f, Color.gray);
 
             // Draw line if being dragged

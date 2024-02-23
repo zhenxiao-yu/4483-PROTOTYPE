@@ -34,7 +34,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     #region Header DUNGEON LEVELS
 
     [Space(10)]
-    [Header("DUNGEON LEVELS")]
+    [Header("GAME LEVELS")]
 
     #endregion Header DUNGEON LEVELS
 
@@ -78,101 +78,60 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
     }
 
-    /// <summary>
-    /// Create player in scene at position
-    /// </summary>
     private void InstantiatePlayer()
     {
-        // Instantiate player
         GameObject playerGameObject = Instantiate(playerDetails.playerPrefab);
-
-        // Initialize Player
         player = playerGameObject.GetComponent<Player>();
-
         player.Initialize(playerDetails);
-
     }
 
     private void OnEnable()
     {
-        // Subscribe to room changed event.
         StaticEventHandler.OnRoomChanged += StaticEventHandler_OnRoomChanged;
-
-        // Subscribe to room enemies defeated event
         StaticEventHandler.OnRoomEnemiesDefeated += StaticEventHandler_OnRoomEnemiesDefeated;
-
-        // Subscribe to the points scored event
         StaticEventHandler.OnPointsScored += StaticEventHandler_OnPointsScored;
-
-        // Subscribe to score multiplier event
         StaticEventHandler.OnMultiplier += StaticEventHandler_OnMultiplier;
-
-        // Subscribe to player destroyed event
         player.destroyedEvent.OnDestroyed += Player_OnDestroyed;
     }
 
     private void OnDisable()
     {
-        // Unsubscribe from room changed event
         StaticEventHandler.OnRoomChanged -= StaticEventHandler_OnRoomChanged;
-
-        // Unsubscribe from room enemies defeated event
         StaticEventHandler.OnRoomEnemiesDefeated -= StaticEventHandler_OnRoomEnemiesDefeated;
-
-        // Unsubscribe from the points scored event
         StaticEventHandler.OnPointsScored -= StaticEventHandler_OnPointsScored;
-
-        // Unsubscribe from score multiplier event
         StaticEventHandler.OnMultiplier -= StaticEventHandler_OnMultiplier;
-
-        // Unubscribe from player destroyed event
         player.destroyedEvent.OnDestroyed -= Player_OnDestroyed;
-
     }
 
-    /// <summary>
-    /// Handle room changed event
-    /// </summary>
     private void StaticEventHandler_OnRoomChanged(RoomChangedEventArgs roomChangedEventArgs)
     {
         SetCurrentRoom(roomChangedEventArgs.room);
     }
 
-    /// <summary>
-    /// Handle room enemies defeated event
-    /// </summary>
+
     private void StaticEventHandler_OnRoomEnemiesDefeated(RoomEnemiesDefeatedArgs roomEnemiesDefeatedArgs)
     {
         RoomEnemiesDefeated();
     }
 
-    /// <summary>
-    /// Handle points scored event
-    /// </summary>
+
     private void StaticEventHandler_OnPointsScored(PointsScoredArgs pointsScoredArgs)
     {
-        // Increase score
         gameScore += pointsScoredArgs.points * scoreMultiplier;
-
-        // Call score changed event
         StaticEventHandler.CallScoreChangedEvent(gameScore, scoreMultiplier);
     }
 
-    /// <summary>
-    /// Handle score multiplier event
-    /// </summary>
+
     private void StaticEventHandler_OnMultiplier(MultiplierArgs multiplierArgs)
     {
         if (multiplierArgs.multiplier)
         {
             scoreMultiplier++;
-        }
-        else
+        } else
         {
             scoreMultiplier--;
         }
 
-        // clamp between 1 and 30
         scoreMultiplier = Mathf.Clamp(scoreMultiplier, 1, 30);
 
         // Call score changed event

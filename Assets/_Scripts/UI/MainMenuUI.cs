@@ -16,6 +16,10 @@ public class MainMenuUI : MonoBehaviour
     #region Tooltip
     [Tooltip("Populate with the quit button gameobject")]
     #endregion
+    [SerializeField] private GameObject difficultyButton;
+    #region Tooltip
+    [Tooltip("Populate with the difficulty button button gameobject")]
+    #endregion
     [SerializeField] private GameObject quitButton;
     #region Tooltip
     [Tooltip("Populate with the high scores button gameobject")]
@@ -62,6 +66,7 @@ public class MainMenuUI : MonoBehaviour
         quitButton.SetActive(false);
         highScoresButton.SetActive(false);
         instructionsButton.SetActive(false);
+        difficultyButton.SetActive(false);
         isHighScoresSceneLoaded = true;
 
         SceneManager.UnloadSceneAsync("CharacterSelectorScene");
@@ -92,6 +97,7 @@ public class MainMenuUI : MonoBehaviour
 
         playButton.SetActive(true);
         quitButton.SetActive(true);
+        difficultyButton.SetActive(true);
         highScoresButton.SetActive(true);
         instructionsButton.SetActive(true);
 
@@ -107,6 +113,7 @@ public class MainMenuUI : MonoBehaviour
         playButton.SetActive(false);
         quitButton.SetActive(false);
         highScoresButton.SetActive(false);
+        difficultyButton.SetActive(false);
         instructionsButton.SetActive(false);
         isInstructionSceneLoaded = true;
 
@@ -137,6 +144,7 @@ public class MainMenuUI : MonoBehaviour
         HelperUtilities.ValidateCheckNullValue(this, nameof(highScoresButton), highScoresButton);
         HelperUtilities.ValidateCheckNullValue(this, nameof(instructionsButton), instructionsButton);
         HelperUtilities.ValidateCheckNullValue(this, nameof(returnToMainMenuButton), returnToMainMenuButton);
+        HelperUtilities.ValidateCheckNullValue(this, nameof(difficultyButton), difficultyButton);
     }
 #endif
     #endregion

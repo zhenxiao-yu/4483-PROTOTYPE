@@ -4433,6 +4433,7 @@ SpriteAtlas:
     - 7c157dae37970c84ba78e2cef397b422: -1455460965742233277
     - 7c157dae37970c84ba78e2cef397b422: 6528925010997447453
     - 7c157dae37970c84ba78e2cef397b422: -2869962238777676711
+    - 47b537beb66d1ea45b0c28cbad7bd3f9: 21300000
     - bb8388be9bfe91d4f8a9050d639835de: -3109398370202946464
     - bb8388be9bfe91d4f8a9050d639835de: -1634846657948205741
     - bb8388be9bfe91d4f8a9050d639835de: -9067613534723016370
@@ -9329,6 +9330,7 @@ SpriteAtlas:
   - {fileID: -1455460965742233277, guid: 7c157dae37970c84ba78e2cef397b422, type: 3}
   - {fileID: 6528925010997447453, guid: 7c157dae37970c84ba78e2cef397b422, type: 3}
   - {fileID: -2869962238777676711, guid: 7c157dae37970c84ba78e2cef397b422, type: 3}
+  - {fileID: 21300000, guid: 47b537beb66d1ea45b0c28cbad7bd3f9, type: 3}
   - {fileID: -3109398370202946464, guid: bb8388be9bfe91d4f8a9050d639835de, type: 3}
   - {fileID: -1634846657948205741, guid: bb8388be9bfe91d4f8a9050d639835de, type: 3}
   - {fileID: -9067613534723016370, guid: bb8388be9bfe91d4f8a9050d639835de, type: 3}
@@ -14224,6 +14226,7 @@ SpriteAtlas:
   - sigil_wide_E_NW_1
   - sigil_wide_E_NW_2
   - sigil_wide_E_NW_3
+  - CharSelectBG
   - TheThiefRollDown_4
   - TheThiefRollDown_5
   - TheThiefRollDown_0

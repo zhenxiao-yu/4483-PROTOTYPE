@@ -895,8 +895,8 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 0.99990815
-    height: 1
+    width: 1
+    height: 0.99975586
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -1497,6 +1497,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MusicManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5775649973180638661, guid: 4690375fcbaa7c5439ca7ede5af5d537, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 603ce326f0e58f4428f6c25e10491b10, type: 3}
     - target: {fileID: 5775649973180638663, guid: 4690375fcbaa7c5439ca7ede5af5d537, type: 3}
       propertyPath: m_RootOrder
       value: 3

@@ -48,7 +48,7 @@ Material:
     - _DistortionScale: 6
     m_Colors:
     - _DissolveSpeed: {r: -0.33, g: -1, b: 0, a: 0}
-    - _EmmissionColor: {r: 766.9961, g: 128.50197, b: 0, a: 1}
+    - _EmmissionColor: {r: 55.403126, g: 374.02347, b: 15.878347, a: 1}
     - _Speed: {r: 0.33, g: -2, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &3682527147264448277

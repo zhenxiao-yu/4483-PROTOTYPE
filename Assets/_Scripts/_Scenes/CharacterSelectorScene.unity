@@ -1442,7 +1442,7 @@ GameObject:
   - component: {fileID: 1394992380}
   - component: {fileID: 1394992379}
   m_Layer: 5
-  m_Name: OptionsInputUI
+  m_Name: NameInput
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

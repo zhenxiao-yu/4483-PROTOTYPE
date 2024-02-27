@@ -3572,7 +3572,6 @@ SpriteAtlas:
     - a95e912cc780a0b44b517cdd0eca3a03: -5646046747420540343
     - a95e912cc780a0b44b517cdd0eca3a03: 2580090179121278332
     - a95e912cc780a0b44b517cdd0eca3a03: -340863048474730885
-    - 88540b2c8e3d3004592f56f61aa04d61: 21300000
     - cbcb3e2cfaea01748b31ea29a7946c58: 7443465781722474237
     - cbcb3e2cfaea01748b31ea29a7946c58: -3844135841060172918
     - cbcb3e2cfaea01748b31ea29a7946c58: -1868880541920376693
@@ -8470,7 +8469,6 @@ SpriteAtlas:
   - {fileID: -5646046747420540343, guid: a95e912cc780a0b44b517cdd0eca3a03, type: 3}
   - {fileID: 2580090179121278332, guid: a95e912cc780a0b44b517cdd0eca3a03, type: 3}
   - {fileID: -340863048474730885, guid: a95e912cc780a0b44b517cdd0eca3a03, type: 3}
-  - {fileID: 21300000, guid: 88540b2c8e3d3004592f56f61aa04d61, type: 3}
   - {fileID: 7443465781722474237, guid: cbcb3e2cfaea01748b31ea29a7946c58, type: 3}
   - {fileID: -3844135841060172918, guid: cbcb3e2cfaea01748b31ea29a7946c58, type: 3}
   - {fileID: -1868880541920376693, guid: cbcb3e2cfaea01748b31ea29a7946c58, type: 3}
@@ -13367,7 +13365,6 @@ SpriteAtlas:
   - sand5_2
   - sand5_1
   - sand5_0
-  - Cursor
   - crumbled_column_3_0
   - crumbled_column_3_3
   - crumbled_column_3_2

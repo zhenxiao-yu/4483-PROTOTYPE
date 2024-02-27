@@ -21,13 +21,11 @@ public class Ammo : MonoBehaviour, IFireable
 
     private void Awake()
     {
-        // cache sprite renderer
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
-        // Ammo charge effect
         if (ammoChargeTimer > 0f)
         {
             ammoChargeTimer -= Time.deltaTime;
@@ -39,71 +37,52 @@ public class Ammo : MonoBehaviour, IFireable
             isAmmoMaterialSet = true;
         }
 
-        // Don't move ammo if movement has been overriden - e.g. this ammo is part of an ammo pattern
         if (!overrideAmmoMovement)
         {
-            // Calculate distance vector to move ammo
             Vector3 distanceVector = fireDirectionVector * ammoSpeed * Time.deltaTime;
 
             transform.position += distanceVector;
-
-            // Disable after max range reached
             ammoRange -= distanceVector.magnitude;
 
             if (ammoRange < 0f)
             {
                 if (ammoDetails.isPlayerAmmo)
                 {
-                    // no multiplier
                     StaticEventHandler.CallMultiplierEvent(false);
                 }
 
                 DisableAmmo();
             }
         }
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // If already colliding with something return
         if (isColliding) return;
-
-        // Deal Damage To Collision Object
         DealDamage(collision);
-
-        // Show ammo hit effect
         AmmoHitEffect();
-
         DisableAmmo();
     }
 
     private void DealDamage(Collider2D collision)
     {
         Health health = collision.GetComponent<Health>();
-
         bool enemyHit = false;
-
         if (health != null)
         {
-            // Set isColliding to prevent ammo dealing damage multiple times
             isColliding = true;
-
             health.TakeDamage(ammoDetails.ammoDamage);
-
-            // Enemy hit
             if (health.enemy != null)
             {
                 enemyHit = true;
             }
         }
 
-        // If player ammo then update multiplier
         if (ammoDetails.isPlayerAmmo)
         {
             if (enemyHit)
             {
-                // multiplier
+
                 StaticEventHandler.CallMultiplierEvent(true);
             }
             else

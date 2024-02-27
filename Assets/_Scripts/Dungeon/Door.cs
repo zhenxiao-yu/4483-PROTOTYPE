@@ -24,10 +24,7 @@ public class Door : MonoBehaviour
 
     private void Awake()
     {
-        // disable door collider by default
         doorCollider.enabled = false;
-
-        // Load components
         animator = GetComponent<Animator>();
         doorTrigger = GetComponent<BoxCollider2D>();
     }
@@ -42,8 +39,6 @@ public class Door : MonoBehaviour
 
     private void OnEnable()
     {
-        // When the parent gameobject is disabled (when the player moves far enough away from the
-        // room) the animator state gets reset. Therefore we need to restore the animator state.
         animator.SetBool(Settings.open, isOpen);
     }
 
@@ -59,37 +54,25 @@ public class Door : MonoBehaviour
             previouslyOpened = true;
             doorCollider.enabled = false;
             doorTrigger.enabled = false;
-
-            // Set open parameter in animator
             animator.SetBool(Settings.open, true);
-
-            // play sound effect
             SoundEffectManager.Instance.PlaySoundEffect(GameResources.Instance.doorOpenCloseSoundEffect);
 
         }
     }
 
-    /// <summary>
-    /// Lock the door
-    /// </summary>
+
     public void LockDoor()
     {
         isOpen = false;
         doorCollider.enabled = true;
         doorTrigger.enabled = false;
-
-        // set open to false to close door
         animator.SetBool(Settings.open, false);
     }
 
-    /// <summary>
-    /// Unlock the door
-    /// </summary>
     public void UnlockDoor()
     {
         doorCollider.enabled = false;
         doorTrigger.enabled = true;
-
         if (previouslyOpened == true)
         {
             isOpen = false;

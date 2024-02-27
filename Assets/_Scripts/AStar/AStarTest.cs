@@ -47,9 +47,6 @@ public class AStarTest : MonoBehaviour
         SetUpPathTilemap();
     }
 
-    /// <summary>
-    /// Use a clone of the front tilemap for the path tilemap.  If not created then create one, else use the exisitng one.
-    /// </summary>
     private void SetUpPathTilemap()
     {
         Transform tilemapCloneTransform = instantiatedRoom.transform.Find("Grid/Tilemap4_Front(Clone)");
@@ -93,10 +90,6 @@ public class AStarTest : MonoBehaviour
         }
     }
 
-
-    /// <summary>
-    /// Set the start position and the start tile on the front tilemap
-    /// </summary>
     private void SetStartPosition()
     {
         if (startGridPosition == noValue)
@@ -118,10 +111,6 @@ public class AStarTest : MonoBehaviour
         }
     }
 
-
-    /// <summary>
-    /// Set the end position and the end tile on the front tilemap
-    /// </summary>
     private void SetEndPosition()
     {
         if (endGridPosition == noValue)
@@ -143,13 +132,8 @@ public class AStarTest : MonoBehaviour
         }
     }
 
-
-    /// <summary>
-    /// Check if the position is within the lower and upper bounds of the room
-    /// </summary>
     private bool IsPositionWithinBounds(Vector3Int position)
     {
-        // If  position is beyond grid then return false
         if (position.x < instantiatedRoom.room.templateLowerBounds.x || position.x > instantiatedRoom.room.templateUpperBounds.x
             || position.y < instantiatedRoom.room.templateLowerBounds.y || position.y > instantiatedRoom.room.templateUpperBounds.y)
         {
@@ -161,10 +145,6 @@ public class AStarTest : MonoBehaviour
         }
     }
 
-
-    /// <summary>
-    /// Clear the path and reset the start and finish positions
-    /// </summary>
     private void ClearPath()
     {
         // Clear Path
@@ -176,15 +156,11 @@ public class AStarTest : MonoBehaviour
         }
 
         pathStack = null;
-
-        //Clear Start and Finish Squares
         endGridPosition = noValue;
         startGridPosition = noValue;
     }
 
-    /// <summary>
-    /// Build and display the AStar path between the start and finish positions
-    /// </summary>
+
     private void DisplayPath()
     {
         if (startGridPosition == noValue || endGridPosition == noValue) return;
@@ -198,5 +174,4 @@ public class AStarTest : MonoBehaviour
             pathTilemap.SetTile(grid.WorldToCell(worldPosition), startPathTile);
         }
     }
-
 }

@@ -6,9 +6,6 @@ public static class HelperUtilities
 {
     public static Camera mainCamera;
 
-    /// <summary>
-    /// Get the mouse world position.
-    /// </summary>
     public static Vector3 GetMouseWorldPosition()
     {
         if (mainCamera == null) mainCamera = Camera.main;
@@ -27,9 +24,6 @@ public static class HelperUtilities
 
     }
 
-    /// <summary>
-    /// Get the camera viewport lower and upper bounds
-    /// </summary>
     public static void CameraWorldPositionBounds(out Vector2Int cameraWorldPositionLowerBounds, out Vector2Int cameraWorldPositionUpperBounds, Camera camera)
     {
         Vector3 worldPositionViewportBottomLeft = camera.ViewportToWorldPoint(new Vector3(0f, 0f, 0f));
@@ -39,9 +33,7 @@ public static class HelperUtilities
         cameraWorldPositionUpperBounds = new Vector2Int((int)worldPositionViewportTopRight.x, (int)worldPositionViewportTopRight.y);
     }
 
-    /// <summary>
-    /// Get the angle in degrees from a direction vector
-    /// </summary>
+
     public static float GetAngleFromVector(Vector3 vector)
     {
         float radians = Mathf.Atan2(vector.y, vector.x);
@@ -52,10 +44,7 @@ public static class HelperUtilities
 
     }
 
-    /// <summary>
-    /// Get the direction vector from an angle in degrees
-    /// </summary>
-    /// <returns></returns>
+
     public static Vector3 GetDirectionVectorFromAngle(float angle)
     {
         Vector3 directionVector = new Vector3(Mathf.Cos(Mathf.Deg2Rad * angle), Mathf.Sin(Mathf.Deg2Rad * angle), 0f);
@@ -65,9 +54,6 @@ public static class HelperUtilities
 
 
 
-    /// <summary>
-    /// Get AimDirection enum value from the pased in angleDegrees
-    /// </summary>
     public static AimDirection GetAimDirection(float angleDegrees)
     {
         AimDirection aimDirection;
@@ -112,9 +98,6 @@ public static class HelperUtilities
 
     }
 
-    /// <summary>
-    /// Convert the linear volume scale to decibels
-    /// </summary>
     public static float LinearToDecibels(int linear)
     {
         float linearScaleRange = 20f;
@@ -125,9 +108,6 @@ public static class HelperUtilities
 
 
 
-    /// <summary>
-    /// Empty string debug check
-    /// </summary>
     public static bool ValidateCheckEmptyString(Object thisObject, string fieldName, string stringToCheck)
     {
         if (stringToCheck == "")
@@ -138,9 +118,7 @@ public static class HelperUtilities
         return false;
     }
 
-    /// <summary>
-    /// null value debug check
-    /// </summary>
+
     public static bool ValidateCheckNullValue(Object thisObject, string fieldName, UnityEngine.Object objectToCheck)
     {
         if (objectToCheck == null)
@@ -152,14 +130,11 @@ public static class HelperUtilities
     }
 
 
-    /// <summary>
-    /// list empty or contains null value check - returns true if there is an error
-    /// </summary>
+
     public static bool ValidateCheckEnumerableValues(Object thisObject, string fieldName, IEnumerable enumerableObjectToCheck)
     {
         bool error = false;
         int count = 0;
-
         if (enumerableObjectToCheck == null)
         {
             Debug.Log(fieldName + " is null in object " + thisObject.name.ToString());
@@ -169,7 +144,6 @@ public static class HelperUtilities
 
         foreach (var item in enumerableObjectToCheck)
         {
-
             if (item == null)
             {
                 Debug.Log(fieldName + " has null values in object " + thisObject.name.ToString());
@@ -191,9 +165,7 @@ public static class HelperUtilities
     }
 
 
-    /// <summary>
-    /// positive value debug check- if zero is allowed set isZeroAllowed to true. Returns true if there is an error
-    /// </summary>
+
     public static bool ValidateCheckPositiveValue(Object thisObject, string fieldName, int valueToCheck, bool isZeroAllowed)
     {
         bool error = false;
@@ -218,9 +190,7 @@ public static class HelperUtilities
         return error;
     }
 
-    /// <summary>
-    /// positive value debug check - if zero is allowed set isZeroAllowed to true. Returns true if there is an error
-    /// </summary>
+
     public static bool ValidateCheckPositiveValue(Object thisObject, string fieldName, float valueToCheck, bool isZeroAllowed)
     {
         bool error = false;
@@ -245,9 +215,7 @@ public static class HelperUtilities
         return error;
     }
 
-    /// <summary>
-    /// positive range debug check - set isZeroAllowed to true if the min and max range values can both be zero. Returns true if there is an error
-    /// </summary>
+
     public static bool ValidateCheckPositiveRange(Object thisObject, string fieldNameMinimum, float valueToCheckMinimum, string fieldNameMaximum, float valueToCheckMaximum, bool isZeroAllowed)
     {
         bool error = false;
@@ -264,9 +232,7 @@ public static class HelperUtilities
         return error;
     }
 
-    /// <summary>
-    /// positive range debug check - set isZeroAllowed to true if the min and max range values can both be zero. Returns true if there is an error
-    /// </summary>
+
     public static bool ValidateCheckPositiveRange(Object thisObject, string fieldNameMinimum, int valueToCheckMinimum, string fieldNameMaximum,int valueToCheckMaximum, bool isZeroAllowed)
     {
         bool error = false;
@@ -283,9 +249,7 @@ public static class HelperUtilities
         return error;
     }
 
-    /// <summary>
-    /// Get the nearest spawn position to the player
-    /// </summary>
+   
     public static Vector3 GetSpawnPositionNearestToPlayer(Vector3 playerPosition)
     {
         Room currentRoom = GameManager.Instance.GetCurrentRoom();
@@ -305,9 +269,7 @@ public static class HelperUtilities
                 nearestSpawnPosition = spawnPositionWorld;
             }
         }
-
         return nearestSpawnPosition;
-
     }
 
 }

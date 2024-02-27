@@ -5,6 +5,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1705139068582714480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
@@ -68,6 +69,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6839687933860854480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
+      propertyPath: ammoSpawnByLevelList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6839687933860854480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
+      propertyPath: healthSpawnByLevelList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6839687933860854480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
+      propertyPath: weaponSpawnByLevelList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6839687933860854480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
       propertyPath: ammoSpawnByLevelList.Array.data[0].max
       value: 20
       objectReference: {fileID: 0}
@@ -117,7 +130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6839687933860854480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
       propertyPath: chestSpawnChanceByLevelList.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6839687933860854480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
       propertyPath: healthSpawnByLevelList.Array.data[0].max
@@ -194,11 +207,11 @@ PrefabInstance:
     - target: {fileID: 6839687933860854480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
       propertyPath: chestSpawnChanceByLevelList.Array.data[0].dungeonLevel
       value: 
-      objectReference: {fileID: 11400000, guid: 1a8cfb7a1001b2b4bb28df71ea197614, type: 2}
+      objectReference: {fileID: 11400000, guid: b8758f957f5d71840adad21f9bd3d838, type: 2}
     - target: {fileID: 6839687933860854480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
       propertyPath: chestSpawnChanceByLevelList.Array.data[1].dungeonLevel
       value: 
-      objectReference: {fileID: 11400000, guid: db97eef24629a514999b7535e9a88f4f, type: 2}
+      objectReference: {fileID: 11400000, guid: 909009f7abc89d04bbb6ed8e9cd32d9c, type: 2}
     - target: {fileID: 6839687933860854480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
       propertyPath: chestSpawnChanceByLevelList.Array.data[2].dungeonLevel
       value: 
@@ -372,4 +385,7 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: e45ac7bcf4447f6498332cc96022174c, type: 2}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}

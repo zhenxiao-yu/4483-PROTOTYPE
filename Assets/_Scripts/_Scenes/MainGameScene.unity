@@ -925,10 +925,6 @@ MonoBehaviour:
   dungeonLevelList:
   - {fileID: 11400000, guid: b8758f957f5d71840adad21f9bd3d838, type: 2}
   - {fileID: 11400000, guid: 909009f7abc89d04bbb6ed8e9cd32d9c, type: 2}
-  - {fileID: 11400000, guid: c901330d7cbb877418ef51a1ea9a6891, type: 2}
-  - {fileID: 11400000, guid: 1a8cfb7a1001b2b4bb28df71ea197614, type: 2}
-  - {fileID: 11400000, guid: db97eef24629a514999b7535e9a88f4f, type: 2}
-  - {fileID: 11400000, guid: 2a55dcbad3bc6f342a3564b4e9622784, type: 2}
   currentDungeonLevelListIndex: 0
   gameState: 0
   previousGameState: 0
@@ -5951,8 +5947,8 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
-    height: 0.99991965
+    width: 0.99973524
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60

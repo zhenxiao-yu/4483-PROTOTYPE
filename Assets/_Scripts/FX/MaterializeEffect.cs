@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class MaterializeEffect : MonoBehaviour
 {
-    /// <summary>
-    /// Materialize effect coroutine - used for the materialiuse special effect
-    /// </summary>
     public IEnumerator MaterializeRoutine(Shader materializeShader, Color materializeColor, float materializeTime, SpriteRenderer[] spriteRendererArray, Material normalMaterial)
     {
         Material materializeMaterial = new Material(materializeShader);

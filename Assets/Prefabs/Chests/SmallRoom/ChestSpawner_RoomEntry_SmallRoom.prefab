@@ -5,6 +5,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1705139068582714480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
@@ -68,6 +69,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6839687933860854480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
+      propertyPath: ammoSpawnByLevelList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6839687933860854480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
+      propertyPath: healthSpawnByLevelList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6839687933860854480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
+      propertyPath: weaponSpawnByLevelList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6839687933860854480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
       propertyPath: ammoSpawnByLevelList.Array.data[0].max
       value: 20
       objectReference: {fileID: 0}
@@ -114,6 +127,10 @@ PrefabInstance:
     - target: {fileID: 6839687933860854480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
       propertyPath: ammoSpawnByLevelList.Array.data[5].min
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6839687933860854480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
+      propertyPath: chestSpawnChanceByLevelList.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6839687933860854480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
       propertyPath: healthSpawnByLevelList.Array.data[0].max
@@ -163,6 +180,30 @@ PrefabInstance:
       propertyPath: healthSpawnByLevelList.Array.data[5].min
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 6839687933860854480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
+      propertyPath: chestSpawnChanceByLevelList.Array.data[0].max
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 6839687933860854480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
+      propertyPath: chestSpawnChanceByLevelList.Array.data[0].min
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6839687933860854480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
+      propertyPath: chestSpawnChanceByLevelList.Array.data[1].max
+      value: 37
+      objectReference: {fileID: 0}
+    - target: {fileID: 6839687933860854480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
+      propertyPath: chestSpawnChanceByLevelList.Array.data[1].min
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 6839687933860854480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
+      propertyPath: chestSpawnChanceByLevelList.Array.data[0].dungeonLevel
+      value: 
+      objectReference: {fileID: 11400000, guid: b8758f957f5d71840adad21f9bd3d838, type: 2}
+    - target: {fileID: 6839687933860854480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
+      propertyPath: chestSpawnChanceByLevelList.Array.data[1].dungeonLevel
+      value: 
+      objectReference: {fileID: 11400000, guid: 909009f7abc89d04bbb6ed8e9cd32d9c, type: 2}
     - target: {fileID: 6839687933860854480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
       propertyPath: weaponSpawnByLevelList.Array.data[0].spawnableObjectRatioList.Array.size
       value: 3
@@ -308,4 +349,7 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 1ab1b024d2a888c43ae92de3cf7320d2, type: 2}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}

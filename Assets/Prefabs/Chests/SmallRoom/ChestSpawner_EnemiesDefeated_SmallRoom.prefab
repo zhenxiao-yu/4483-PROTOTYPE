@@ -5,6 +5,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2521171862594630957, guid: 50aee902b80902947ba13e1052ab8efa, type: 3}
@@ -66,6 +67,18 @@ PrefabInstance:
     - target: {fileID: 2936276756521162843, guid: 50aee902b80902947ba13e1052ab8efa, type: 3}
       propertyPath: numberOfItemsToSpawnMin
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2936276756521162843, guid: 50aee902b80902947ba13e1052ab8efa, type: 3}
+      propertyPath: ammoSpawnByLevelList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2936276756521162843, guid: 50aee902b80902947ba13e1052ab8efa, type: 3}
+      propertyPath: healthSpawnByLevelList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2936276756521162843, guid: 50aee902b80902947ba13e1052ab8efa, type: 3}
+      propertyPath: weaponSpawnByLevelList.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2936276756521162843, guid: 50aee902b80902947ba13e1052ab8efa, type: 3}
       propertyPath: ammoSpawnByLevelList.Array.data[0].max
@@ -186,7 +199,7 @@ PrefabInstance:
     - target: {fileID: 2936276756521162843, guid: 50aee902b80902947ba13e1052ab8efa, type: 3}
       propertyPath: chestSpawnChanceByLevelList.Array.data[1].dungeonLevel
       value: 
-      objectReference: {fileID: 11400000, guid: 2a55dcbad3bc6f342a3564b4e9622784, type: 2}
+      objectReference: {fileID: 11400000, guid: 909009f7abc89d04bbb6ed8e9cd32d9c, type: 2}
     - target: {fileID: 2936276756521162843, guid: 50aee902b80902947ba13e1052ab8efa, type: 3}
       propertyPath: weaponSpawnByLevelList.Array.data[0].spawnableObjectRatioList.Array.size
       value: 3
@@ -336,4 +349,7 @@ PrefabInstance:
       value: ChestSpawner_EnemiesDefeated_SmallRoom
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50aee902b80902947ba13e1052ab8efa, type: 3}

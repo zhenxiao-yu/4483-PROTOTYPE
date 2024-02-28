@@ -144,7 +144,6 @@ public class FireWeapon : MonoBehaviour
         WeaponSoundEffect();
     }
 
->
     private void ResetCoolDownTimer()
     {
         fireRateCoolDownTimer = activeWeapon.GetCurrentWeapon().weaponDetails.weaponFireRate;

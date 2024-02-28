@@ -15,8 +15,8 @@ public class InstantiatedRoom : MonoBehaviour
     [HideInInspector] public Tilemap frontTilemap;
     [HideInInspector] public Tilemap collisionTilemap;
     [HideInInspector] public Tilemap minimapTilemap;
-    [HideInInspector] public int[,] aStarMovementPenalty;  // use this 2d array to store movement penalties from the tilemaps to be used in AStar pathfinding
-    [HideInInspector] public int[,] aStarItemObstacles; // use to store position of moveable items that are obstacles
+    [HideInInspector] public int[,] aStarMovementPenalty; 
+    [HideInInspector] public int[,] aStarItemObstacles; 
     [HideInInspector] public Bounds roomColliderBounds;
     [HideInInspector] public List<MoveItem> moveableItemsList = new List<MoveItem>();
 
@@ -68,9 +68,7 @@ public class InstantiatedRoom : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Initialise The Instantiated Room
-    /// </summary>
+
     public void Initialise(GameObject roomGameobject)
     {
         PopulateTilemapMemberVariables(roomGameobject);
@@ -87,9 +85,7 @@ public class InstantiatedRoom : MonoBehaviour
 
     }
 
-    /// <summary>
-    /// Populate the tilemap and grid memeber variables.
-    /// </summary>
+
     private void PopulateTilemapMemberVariables(GameObject roomGameobject)
     {
         // Get the grid component.
@@ -129,9 +125,6 @@ public class InstantiatedRoom : MonoBehaviour
 
     }
 
-    /// <summary>
-    /// Block Off Unused Doorways In The Room
-    /// </summary>
     private void BlockOffUnusedDoorWays()
     {
         // Loop through all doorways
@@ -173,9 +166,7 @@ public class InstantiatedRoom : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Block a doorway on a tilemap layer
-    /// </summary>
+
     private void BlockADoorwayOnTilemapLayer(Tilemap tilemap, Doorway doorway)
     {
         switch (doorway.orientation)
@@ -196,9 +187,7 @@ public class InstantiatedRoom : MonoBehaviour
 
     }
 
-    /// <summary>
-    /// Block doorway horizontally - for North and South doorways
-    /// </summary>
+
     private void BlockDoorwayHorizontally(Tilemap tilemap, Doorway doorway)
     {
         Vector2Int startPosition = doorway.doorwayStartCopyPosition;
@@ -213,8 +202,6 @@ public class InstantiatedRoom : MonoBehaviour
 
                 // Copy tile
                 tilemap.SetTile(new Vector3Int(startPosition.x + 1 + xPos, startPosition.y - yPos, 0), tilemap.GetTile(new Vector3Int(startPosition.x + xPos, startPosition.y - yPos, 0)));
-
-                // Set rotation of tile copied
                 tilemap.SetTransformMatrix(new Vector3Int(startPosition.x + 1 + xPos, startPosition.y - yPos, 0), transformMatrix);
             }
         }

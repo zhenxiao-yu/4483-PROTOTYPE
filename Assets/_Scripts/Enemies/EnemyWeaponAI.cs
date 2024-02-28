@@ -45,7 +45,6 @@ public class EnemyWeaponAI : MonoBehaviour
             }
             else
             {
-                // Reset timers
                 firingIntervalTimer = WeaponShootInterval();
                 firingDurationTimer = WeaponShootDuration();
             }
@@ -65,7 +64,6 @@ public class EnemyWeaponAI : MonoBehaviour
 
     private void FireWeapon()
     {
-        // Player distance
         Vector3 playerDirectionVector = GameManager.Instance.GetPlayer().GetPlayerPosition() - transform.position;
         Vector3 weaponDirection = (GameManager.Instance.GetPlayer().GetPlayerPosition() - weaponShootPosition.position);
         float weaponAngleDegrees = HelperUtilities.GetAngleFromVector(weaponDirection);
@@ -92,7 +90,6 @@ public class EnemyWeaponAI : MonoBehaviour
         {
             return true;
         }
-
         return false;
     }
 

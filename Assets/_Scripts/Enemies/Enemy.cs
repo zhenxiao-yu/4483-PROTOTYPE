@@ -118,7 +118,7 @@ public class Enemy : MonoBehaviour
         StartCoroutine(MaterializeEnemy());
     }
 
->
+
     private void SetEnemyMovementUpdateFrame(int enemySpawnNumber)
     {
         // Set frame number that enemy should process it's updates

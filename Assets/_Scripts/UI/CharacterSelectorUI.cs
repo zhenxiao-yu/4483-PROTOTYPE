@@ -24,7 +24,6 @@ public class CharacterSelectorUI : MonoBehaviour
 
     private void Awake()
     {
-        // Load resources
         playerSelectionPrefab = GameResources.Instance.playerSelectionPrefab;
         playerDetailsList = GameResources.Instance.playerDetailsList;
         currentPlayer = GameResources.Instance.currentPlayer;

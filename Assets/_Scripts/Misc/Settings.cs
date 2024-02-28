@@ -24,7 +24,7 @@ public static class Settings
 
 
     #region ANIMATOR PARAMETERS
-    // Animator parameters - Player
+
     public static int aimUp = Animator.StringToHash("aimUp");
     public static int aimDown = Animator.StringToHash("aimDown");
     public static int aimUpRight = Animator.StringToHash("aimUpRight");

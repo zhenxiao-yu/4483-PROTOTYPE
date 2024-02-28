@@ -104,7 +104,7 @@ public static class AStar
         int dstY = Mathf.Abs(nodeA.gridPosition.y - nodeB.gridPosition.y);
 
         if (dstX > dstY)
-            return 14 * dstY + 10 * (dstX - dstY);  // 10 used instead of 1, and 14 is a pythagoras approximation SQRT(10*10 + 10*10) - to avoid using floats
+            return 14 * dstY + 10 * (dstX - dstY); 
         return 14 * dstX + 10 * (dstY - dstX);
     }
 

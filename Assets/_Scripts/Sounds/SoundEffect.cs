@@ -24,9 +24,7 @@ public class SoundEffect : MonoBehaviour
         audioSource.Stop();
     }
 
-    /// <summary>
-    /// Set the sound effect to play 
-    /// </summary>
+ 
     public void SetSound(SoundEffectSO soundEffect)
     {
         audioSource.pitch = Random.Range(soundEffect.soundEffectPitchRandomVariationMin, soundEffect.soundEffectPitchRandomVariationMax);

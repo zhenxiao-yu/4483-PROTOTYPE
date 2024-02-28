@@ -24,7 +24,6 @@ public class EnemyMovementAI : MonoBehaviour
 
     private void Awake()
     {
-        // Load components
         enemy = GetComponent<Enemy>();
 
         moveSpeed = movementDetails.GetMoveSpeed();
@@ -32,10 +31,7 @@ public class EnemyMovementAI : MonoBehaviour
 
     private void Start()
     {
-        // Create waitforfixed update for use in coroutine
         waitForFixedUpdate = new WaitForFixedUpdate();
-
-        // Reset player reference position
         playerReferencePosition = GameManager.Instance.GetPlayer().GetPlayerPosition();
 
     }
@@ -46,25 +42,18 @@ public class EnemyMovementAI : MonoBehaviour
     }
 
 
-    /// <summary>
-    /// Use AStar pathfinding to build a path to the player - and then move the enemy to each grid location on the path
-    /// </summary>
+
     private void MoveEnemy()
     {
-        // Movement cooldown timer
         currentEnemyPathRebuildCooldown -= Time.deltaTime;
-
-        // Check distance to player to see if enemy should start chasing
         if (!chasePlayer && Vector3.Distance(transform.position, GameManager.Instance.GetPlayer().GetPlayerPosition()) < enemy.enemyDetails.chaseDistance)
         {
             chasePlayer = true;
         }
 
-        // If not close enough to chase player then return
         if (!chasePlayer)
             return;
 
-        // Only process A Star path rebuild on certain frames to spread the load between enemies
         if (Time.frameCount % Settings.targetFrameRateToSpreadPathfindingOver != updateFrameNumber) return;
 
         // if the movement cooldown timer reached or player has moved more than required distance
@@ -98,16 +87,11 @@ public class EnemyMovementAI : MonoBehaviour
     }
 
 
-    /// <summary>
-    /// Coroutine to move the enemy to the next location on the path
-    /// </summary>
     private IEnumerator MoveEnemyRoutine(Stack<Vector3> movementSteps)
     {
         while (movementSteps.Count > 0)
         {
             Vector3 nextPosition = movementSteps.Pop();
-
-            // while not very close continue to move - when close move onto the next step
             while (Vector3.Distance(nextPosition, transform.position) > 0.2f)
             {
                 // Trigger movement event
@@ -125,20 +109,13 @@ public class EnemyMovementAI : MonoBehaviour
 
     }
 
-    /// <summary>
-    /// Use the AStar static class to create a path for the enemy
-    /// </summary>
+
     private void CreatePath()
     {
         Room currentRoom = GameManager.Instance.GetCurrentRoom();
 
         Grid grid = currentRoom.instantiatedRoom.grid;
-
-        // Get players position on the grid
         Vector3Int playerGridPosition = GetNearestNonObstaclePlayerPosition(currentRoom);
-
-
-        // Get enemy position on the grid
         Vector3Int enemyGridPosition = grid.WorldToCell(transform.position);
 
         // Build a path for the enemy to move on
@@ -156,17 +133,13 @@ public class EnemyMovementAI : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Set the frame number that the enemy path will be recalculated on - to avoid performance spikes
-    /// </summary>
+
     public void SetUpdateFrameNumber(int updateFrameNumber)
     {
         this.updateFrameNumber = updateFrameNumber;
     }
 
-    /// <summary>
-    /// Get the nearest position to the player that isn't on an obstacle
-    /// </summary>
+
     private Vector3Int GetNearestNonObstaclePlayerPosition(Room currentRoom)
     {
         Vector3 playerPosition = GameManager.Instance.GetPlayer().GetPlayerPosition();
@@ -177,7 +150,6 @@ public class EnemyMovementAI : MonoBehaviour
 
         int obstacle = Mathf.Min(currentRoom.instantiatedRoom.aStarMovementPenalty[adjustedPlayerCellPositon.x, adjustedPlayerCellPositon.y], currentRoom.instantiatedRoom.aStarItemObstacles[adjustedPlayerCellPositon.x, adjustedPlayerCellPositon.y]);
 
-        // if the player isn't on a cell square marked as an obstacle then return that position
         if (obstacle != 0)
         {
             return playerCellPosition;

@@ -12,7 +12,6 @@ public class Idle : MonoBehaviour
 
     private void Awake()
     {
-        // Load components
         rigidBody2D = GetComponent<Rigidbody2D>();
         idleEvent = GetComponent<IdleEvent>();
 
@@ -20,13 +19,11 @@ public class Idle : MonoBehaviour
 
     private void OnEnable()
     {
-        // Subscribe to idle event
         idleEvent.OnIdle += IdleEvent_OnIdle;
     }
 
     private void OnDisable()
     {
-        // Subscribe to idle event
         idleEvent.OnIdle -= IdleEvent_OnIdle;
     }
 
@@ -35,12 +32,9 @@ public class Idle : MonoBehaviour
         MoveRigidBody();
     }
 
-    /// <summary>
-    /// Move the rigidbody component
-    /// </summary>
+
     private void MoveRigidBody()
     {
-        // ensure the rb collision detection is set to continuous
         rigidBody2D.velocity = Vector2.zero;
     }
 }

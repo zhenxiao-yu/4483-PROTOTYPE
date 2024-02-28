@@ -117,9 +117,7 @@ public class RoomTemplateSO : ScriptableObject
 
     public List<RoomEnemySpawnParameters> roomEnemySpawnParametersList;
 
-    /// <summary>
-    /// Returns the list of Entrances for the room template
-    /// </summary>
+  
     public List<Doorway> GetDoorwayList()
     {
         return doorwayList;
@@ -128,11 +126,8 @@ public class RoomTemplateSO : ScriptableObject
     #region Validation
 
 #if UNITY_EDITOR
-
-    // Validate SO fields
     private void OnValidate()
     {
-        // Set unique GUID if empty or the prefab changes
         if (guid == "" || previousPrefab != prefab)
         {
             guid = GUID.Generate().ToString();

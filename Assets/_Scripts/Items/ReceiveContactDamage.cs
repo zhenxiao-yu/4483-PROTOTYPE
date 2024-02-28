@@ -14,7 +14,6 @@ public class ReceiveContactDamage : MonoBehaviour
 
     private void Awake()
     {
-        //Load components
         health = GetComponent<Health>();
     }
 
@@ -22,7 +21,6 @@ public class ReceiveContactDamage : MonoBehaviour
     {
         if (contactDamageAmount > 0)
             damageAmount = contactDamageAmount;
-
         health.TakeDamage(damageAmount);
     }
 

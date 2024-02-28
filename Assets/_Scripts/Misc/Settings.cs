@@ -17,8 +17,8 @@ public static class Settings
     #endregion
 
     #region ROOM SETTINGS
-    public const float fadeInTime = 0.5f; // time to fade in the room
-    public const int maxChildCorridors = 3; // Max number of child corridors leading from a room. - maximum should be 3 although this is not recommended since it can cause the dungeon building to fail since the rooms are more likely to not fit together;
+    public const float fadeInTime = 0.5f; 
+    public const int maxChildCorridors = 3; 
     public const float doorUnlockDelay = 1f;
     #endregion
 
@@ -63,12 +63,12 @@ public static class Settings
     #endregion
 
     #region AUDIO
-    public const float musicFadeOutTime = 0.5f;  // Defualt Music Fade Out Transition
-    public const float musicFadeInTime = 0.5f;  // Default Music Fade In Transition
+    public const float musicFadeOutTime = 0.5f;  
+    public const float musicFadeInTime = 0.5f;  
     #endregion
 
     #region FIRING CONTROL
-    public const float useAimAngleDistance = 3.5f; // if the target distance is less than this then the aim angle will be used (calculated from player), else the weapon aim angle will be used (calculated from the weapon). 
+    public const float useAimAngleDistance = 3.5f; 
     #endregion
 
     #region ASTAR PATHFINDING PARAMETERS

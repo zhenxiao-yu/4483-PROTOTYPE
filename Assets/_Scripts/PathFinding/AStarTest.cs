@@ -67,23 +67,20 @@ public class AStarTest : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+
     private void Update()
     {
         if (instantiatedRoom == null || startPathTile == null || finishPathTile == null || grid == null || pathTilemap == null) return;
-
         if (Input.GetKeyDown(KeyCode.I))
         {
             ClearPath();
             SetStartPosition();
         }
-
         if (Input.GetKeyDown(KeyCode.O))
         {
             ClearPath();
             SetEndPosition();
         }
-
         if (Input.GetKeyDown(KeyCode.P))
         {
             DisplayPath();
@@ -95,7 +92,6 @@ public class AStarTest : MonoBehaviour
         if (startGridPosition == noValue)
         {
             startGridPosition = grid.WorldToCell(HelperUtilities.GetMouseWorldPosition());
-
             if (!IsPositionWithinBounds(startGridPosition))
             {
                 startGridPosition = noValue;
@@ -116,7 +112,6 @@ public class AStarTest : MonoBehaviour
         if (endGridPosition == noValue)
         {
             endGridPosition = grid.WorldToCell(HelperUtilities.GetMouseWorldPosition());
-
             if (!IsPositionWithinBounds(endGridPosition))
             {
                 endGridPosition = noValue;
@@ -147,9 +142,7 @@ public class AStarTest : MonoBehaviour
 
     private void ClearPath()
     {
-        // Clear Path
         if (pathStack == null) return;
-
         foreach (Vector3 worldPosition in pathStack)
         {
             pathTilemap.SetTile(grid.WorldToCell(worldPosition), null);
@@ -164,11 +157,8 @@ public class AStarTest : MonoBehaviour
     private void DisplayPath()
     {
         if (startGridPosition == noValue || endGridPosition == noValue) return;
-
         pathStack = AStar.BuildPath(instantiatedRoom.room, startGridPosition, endGridPosition);
-
         if (pathStack == null) return;
-
         foreach (Vector3 worldPosition in pathStack)
         {
             pathTilemap.SetTile(grid.WorldToCell(worldPosition), startPathTile);

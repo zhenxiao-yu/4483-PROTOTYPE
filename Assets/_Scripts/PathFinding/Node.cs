@@ -11,7 +11,6 @@ public class Node : IComparable<Node>
     public Node(Vector2Int gridPosition)
     {
         this.gridPosition = gridPosition;
-
         parentNode = null;
     }
 
@@ -26,7 +25,6 @@ public class Node : IComparable<Node>
     public int CompareTo(Node nodeToCompare)
     {
         int compare = FCost.CompareTo(nodeToCompare.FCost);
-
         if (compare == 0)
         {
             compare = hCost.CompareTo(nodeToCompare.hCost);

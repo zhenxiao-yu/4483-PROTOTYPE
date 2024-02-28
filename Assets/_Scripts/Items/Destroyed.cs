@@ -10,19 +10,16 @@ public class Destroyed : MonoBehaviour
 
     private void Awake()
     {
-        // Load components
         destroyedEvent = GetComponent<DestroyedEvent>();
     }
 
     private void OnEnable()
     {
-        //Subscribe to destroyed event
         destroyedEvent.OnDestroyed += DestroyedEvent_OnDestroyed;
     }
 
     private void OnDisable()
     {
-        //Unsubscribe to destroyed event
         destroyedEvent.OnDestroyed -= DestroyedEvent_OnDestroyed;
 
     }

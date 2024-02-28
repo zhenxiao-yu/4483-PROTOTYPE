@@ -48,9 +48,7 @@ public class CharacterSelectorUI : MonoBehaviour
 
     }
 
-    /// <summary>
-    /// Populate player character details for display
-    /// </summary>
+
     private void PopulatePlayerDetails(PlayerSelectionUI playerSelection, PlayerDetailsSO playerDetails)
     {
         playerSelection.playerHandSpriteRenderer.sprite = playerDetails.playerHandSprite;
@@ -59,33 +57,24 @@ public class CharacterSelectorUI : MonoBehaviour
         playerSelection.animator.runtimeAnimatorController = playerDetails.runtimeAnimatorController;
     }
 
-    /// <summary>
-    /// Select next character - this method is called from the onClick event set in the inspector
-    /// </summary>
+
     public void NextCharacter()
     {
         if (selectedPlayerIndex >= playerDetailsList.Count - 1)
             return;
         selectedPlayerIndex++;
-
         currentPlayer.playerDetails = playerDetailsList[selectedPlayerIndex];
-
         MoveToSelectedCharacter(selectedPlayerIndex);
     }
 
 
-    /// <summary>
-    /// Select previous character - this method is called from the onClick event set in the inspector
-    /// </summary>
+
     public void PreviousCharacter()
     {
         if (selectedPlayerIndex == 0)
             return;
-
         selectedPlayerIndex--;
-
         currentPlayer.playerDetails = playerDetailsList[selectedPlayerIndex];
-
         MoveToSelectedCharacter(selectedPlayerIndex);
     }
 
@@ -94,7 +83,6 @@ public class CharacterSelectorUI : MonoBehaviour
     {
         if (coroutine != null)
             StopCoroutine(coroutine);
-
         coroutine = StartCoroutine(MoveToSelectedCharacterRoutine(index));
     }
 
@@ -102,11 +90,9 @@ public class CharacterSelectorUI : MonoBehaviour
     {
         float currentLocalXPosition = characterSelector.localPosition.x;
         float targetLocalXPosition = index * offset * characterSelector.localScale.x * -1f;
-
         while (Mathf.Abs(currentLocalXPosition - targetLocalXPosition) > 0.01f)
         {
             currentLocalXPosition = Mathf.Lerp(currentLocalXPosition, targetLocalXPosition, Time.deltaTime * 10f);
-
             characterSelector.localPosition = new Vector3(currentLocalXPosition, characterSelector.localPosition.y, 0f);
             yield return null;
         }
@@ -114,13 +100,10 @@ public class CharacterSelectorUI : MonoBehaviour
         characterSelector.localPosition = new Vector3(targetLocalXPosition, characterSelector.localPosition.y, 0f);
     }
 
-    /// <summary>
-    /// Update player name - this method is called from the field changed event set in the inspector
-    /// </summary>
+
     public void UpdatePlayerName()
     {
         playerNameInput.text = playerNameInput.text.ToUpper();
-
         currentPlayer.playerName = playerNameInput.text;
     }
 

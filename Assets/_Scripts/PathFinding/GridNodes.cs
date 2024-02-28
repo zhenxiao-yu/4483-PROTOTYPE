@@ -11,9 +11,7 @@ public class GridNodes
     {
         this.width = width;
         this.height = height;
-
         gridNode = new Node[width, height];
-
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)

@@ -21,19 +21,14 @@ public class DisplayHighScoresUI : MonoBehaviour
     {
         HighScores highScores = HighScoreManager.Instance.GetHighScores();
         GameObject scoreGameobject;
-
-        // Loop through scores
         int rank = 0;
         foreach (Score score in highScores.scoreList)
         {
             rank++;
 
-            // Instantiate scores gameobject
             scoreGameobject = Instantiate(GameResources.Instance.scorePrefab, contentAnchorTransform);
-
             ScorePrefab scorePrefab = scoreGameobject.GetComponent<ScorePrefab>();
-
-            //Populate
+            // populate the leader board
             scorePrefab.rankTMP.text = rank.ToString();
             scorePrefab.nameTMP.text = score.playerName;
             scorePrefab.levelTMP.text = score.levelDescription;

@@ -1,11 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// ScriptableObject representing the current player.
+/// </summary>
 [CreateAssetMenu(fileName = "CurrentPlayer", menuName = "Scriptable Objects/Player/Current Player")]
 public class CurrentPlayerSO : ScriptableObject
 {
+    /// <summary>
+    /// Details of the current player.
+    /// </summary>
     public PlayerDetailsSO playerDetails;
-    public string playerName;
 
+    /// <summary>
+    /// Name of the current player.
+    /// </summary>
+    public string playerName;
 }

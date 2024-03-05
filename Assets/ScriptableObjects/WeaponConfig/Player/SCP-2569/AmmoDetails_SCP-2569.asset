@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b4954adab2da614ca52023de4ebf134, type: 3}
-  m_Name: AmmoDetails_PlasmaBlaster
+  m_Name: AmmoDetails_SCP-2569
   m_EditorClassIdentifier: 
   ammoName: Plasma Blaster Ammo
   isPlayerAmmo: 1

@@ -5,10 +5,10 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class PoolManager : SingletonMonobehaviour<PoolManager>
 {
-    #region Tooltip
-    [Tooltip("Populate this array with prefabs that you want to add to the pool, and specify the number of gameobjects to be created for each.")]
-    #endregion
-    [SerializeField] private Pool[] poolArray = null;
+    [SerializeField]
+    [Tooltip("Array of prefabs to be pooled along with their initial sizes.")]
+    private Pool[] poolArray = null;
+
     private Transform objectPoolTransform;
     private Dictionary<int, Queue<Component>> poolDictionary = new Dictionary<int, Queue<Component>>();
 
@@ -22,22 +22,24 @@ public class PoolManager : SingletonMonobehaviour<PoolManager>
 
     private void Start()
     {
-        objectPoolTransform = this.gameObject.transform;
-        for (int i = 0; i < poolArray.Length; i++)
-        {
-            CreatePool(poolArray[i].prefab, poolArray[i].poolSize, poolArray[i].componentType);
-        }
+        objectPoolTransform = transform;
+        InitializePools();
+    }
 
+    private void InitializePools()
+    {
+        foreach (Pool pool in poolArray)
+        {
+            CreatePool(pool.prefab, pool.poolSize, pool.componentType);
+        }
     }
 
     private void CreatePool(GameObject prefab, int poolSize, string componentType)
     {
         int poolKey = prefab.GetInstanceID();
+        string prefabName = prefab.name;
 
-        string prefabName = prefab.name; 
-
-        GameObject parentGameObject = new GameObject(prefabName + "Anchor"); // create parent gameobject to parent the child objects to
-
+        GameObject parentGameObject = new GameObject(prefabName + "Anchor");
         parentGameObject.transform.SetParent(objectPoolTransform);
 
         if (!poolDictionary.ContainsKey(poolKey))
@@ -46,17 +48,12 @@ public class PoolManager : SingletonMonobehaviour<PoolManager>
 
             for (int i = 0; i < poolSize; i++)
             {
-                GameObject newObject = Instantiate(prefab, parentGameObject.transform) as GameObject;
-
+                GameObject newObject = Instantiate(prefab, parentGameObject.transform);
                 newObject.SetActive(false);
-
                 poolDictionary[poolKey].Enqueue(newObject.GetComponent(Type.GetType(componentType)));
-
             }
         }
-
     }
-
 
     public Component ReuseComponent(GameObject prefab, Vector3 position, Quaternion rotation)
     {
@@ -65,22 +62,29 @@ public class PoolManager : SingletonMonobehaviour<PoolManager>
         if (poolDictionary.ContainsKey(poolKey))
         {
             Component componentToReuse = GetComponentFromPool(poolKey);
-            ResetObject(position, rotation, componentToReuse, prefab);
-            return componentToReuse;
+            if (componentToReuse != null)
+            {
+                ResetObject(position, rotation, componentToReuse, prefab);
+                return componentToReuse;
+            }
+            else
+            {
+                Debug.LogWarning("Failed to get component from pool for prefab: " + prefab.name);
+            }
         }
         else
         {
-            Debug.Log("No object pool for " + prefab);
-            return null;
+            Debug.LogWarning("No object pool found for prefab: " + prefab.name);
         }
-    }
 
+        return null;
+    }
 
     private Component GetComponentFromPool(int poolKey)
     {
         Component componentToReuse = poolDictionary[poolKey].Dequeue();
         poolDictionary[poolKey].Enqueue(componentToReuse);
-        if (componentToReuse.gameObject.activeSelf == true)
+        if (componentToReuse.gameObject.activeSelf)
         {
             componentToReuse.gameObject.SetActive(false);
         }
@@ -88,12 +92,12 @@ public class PoolManager : SingletonMonobehaviour<PoolManager>
         return componentToReuse;
     }
 
-
     private void ResetObject(Vector3 position, Quaternion rotation, Component componentToReuse, GameObject prefab)
     {
-        componentToReuse.transform.position = position;
-        componentToReuse.transform.rotation = rotation;
-        componentToReuse.gameObject.transform.localScale = prefab.transform.localScale;
+        Transform objectTransform = componentToReuse.transform;
+        objectTransform.position = position;
+        objectTransform.rotation = rotation;
+        objectTransform.localScale = prefab.transform.localScale;
     }
 
     #region Validation

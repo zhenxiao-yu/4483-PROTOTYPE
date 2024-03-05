@@ -4,17 +4,18 @@ using UnityEngine.Tilemaps;
 
 public class AStarTest : MonoBehaviour
 {
+    [SerializeField] private Tilemap frontTilemap;
+    [SerializeField] private TileBase startPathTile;
+    [SerializeField] private TileBase finishPathTile;
+
     private InstantiatedRoom instantiatedRoom;
     private Grid grid;
-    private Tilemap frontTilemap;
     private Tilemap pathTilemap;
     private Vector3Int startGridPosition;
     private Vector3Int endGridPosition;
-    private TileBase startPathTile;
-    private TileBase finishPathTile;
-
-    private Vector3Int noValue = new Vector3Int(9999, 9999, 9999);
     private Stack<Vector3> pathStack;
+
+    private readonly Vector3Int noValue = new Vector3Int(9999, 9999, 9999);
 
     private void OnEnable()
     {
@@ -31,7 +32,6 @@ public class AStarTest : MonoBehaviour
         startPathTile = GameResources.Instance.preferredEnemyPathTile;
         finishPathTile = GameResources.Instance.enemyUnwalkableCollisionTilesArray[0];
     }
-
 
     private void StaticEventHandler_OnRoomChanged(RoomChangedEventArgs roomChangedEventArgs)
     {
@@ -51,88 +51,77 @@ public class AStarTest : MonoBehaviour
         if (tilemapCloneTransform == null)
         {
             pathTilemap = Instantiate(frontTilemap, grid.transform);
-            pathTilemap.GetComponent<TilemapRenderer>().sortingOrder = 2;
-            pathTilemap.GetComponent<TilemapRenderer>().material = GameResources.Instance.litMaterial;
-            pathTilemap.gameObject.tag = "Untagged";
+            ConfigurePathTilemap();
         }
         else
         {
-            pathTilemap = instantiatedRoom.transform.Find("Grid/Tilemap4_Front(Clone)").GetComponent<Tilemap>();
+            pathTilemap = tilemapCloneTransform.GetComponent<Tilemap>();
             pathTilemap.ClearAllTiles();
         }
     }
 
+    private void ConfigurePathTilemap()
+    {
+        pathTilemap.GetComponent<TilemapRenderer>().sortingOrder = 2;
+        pathTilemap.GetComponent<TilemapRenderer>().material = GameResources.Instance.litMaterial;
+        pathTilemap.gameObject.tag = "Untagged";
+    }
 
     private void Update()
     {
-        if (instantiatedRoom == null || startPathTile == null || finishPathTile == null || grid == null || pathTilemap == null) return;
+        if (AnyNullReferences()) return;
+        HandleInput();
+    }
+
+    private bool AnyNullReferences()
+    {
+        return instantiatedRoom == null || startPathTile == null || finishPathTile == null || grid == null || pathTilemap == null;
+    }
+
+    private void HandleInput()
+    {
         if (Input.GetKeyDown(KeyCode.I))
         {
             ClearPath();
-            SetStartPosition();
+            SetPosition(ref startGridPosition, startPathTile);
         }
-        if (Input.GetKeyDown(KeyCode.O))
+        else if (Input.GetKeyDown(KeyCode.O))
         {
             ClearPath();
-            SetEndPosition();
+            SetPosition(ref endGridPosition, finishPathTile);
         }
-        if (Input.GetKeyDown(KeyCode.P))
+        else if (Input.GetKeyDown(KeyCode.P))
         {
             DisplayPath();
         }
     }
 
-    private void SetStartPosition()
+    private void SetPosition(ref Vector3Int position, TileBase tile)
     {
-        if (startGridPosition == noValue)
+        if (position == noValue)
         {
-            startGridPosition = grid.WorldToCell(HelperUtilities.GetMouseWorldPosition());
-            if (!IsPositionWithinBounds(startGridPosition))
+            position = grid.WorldToCell(HelperUtilities.GetMouseWorldPosition());
+            if (!IsPositionWithinBounds(position))
             {
-                startGridPosition = noValue;
+                position = noValue;
                 return;
             }
 
-            pathTilemap.SetTile(startGridPosition, startPathTile);
+            pathTilemap.SetTile(position, tile);
         }
         else
         {
-            pathTilemap.SetTile(startGridPosition, null);
-            startGridPosition = noValue;
-        }
-    }
-
-    private void SetEndPosition()
-    {
-        if (endGridPosition == noValue)
-        {
-            endGridPosition = grid.WorldToCell(HelperUtilities.GetMouseWorldPosition());
-            if (!IsPositionWithinBounds(endGridPosition))
-            {
-                endGridPosition = noValue;
-                return;
-            }
-
-            pathTilemap.SetTile(endGridPosition, finishPathTile);
-        }
-        else
-        {
-            pathTilemap.SetTile(endGridPosition, null);
-            endGridPosition = noValue;
+            pathTilemap.SetTile(position, null);
+            position = noValue;
         }
     }
 
     private bool IsPositionWithinBounds(Vector3Int position)
     {
-        if (position.x < instantiatedRoom.room.templateLowerBounds.x || position.x > instantiatedRoom.room.templateUpperBounds.x
-            || position.y < instantiatedRoom.room.templateLowerBounds.y || position.y > instantiatedRoom.room.templateUpperBounds.y)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+        return position.x >= instantiatedRoom.room.templateLowerBounds.x &&
+               position.x <= instantiatedRoom.room.templateUpperBounds.x &&
+               position.y >= instantiatedRoom.room.templateLowerBounds.y &&
+               position.y <= instantiatedRoom.room.templateUpperBounds.y;
     }
 
     private void ClearPath()
@@ -147,7 +136,6 @@ public class AStarTest : MonoBehaviour
         endGridPosition = noValue;
         startGridPosition = noValue;
     }
-
 
     private void DisplayPath()
     {

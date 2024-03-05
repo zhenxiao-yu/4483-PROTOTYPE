@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d000594b3451c442b14b022db09cabe, type: 3}
-  m_Name: PlayerDetails_TheScientist
+  m_Name: PlayerDetails_Chris
   m_EditorClassIdentifier: 
-  playerCharacterName: The Scientist
+  playerCharacterName: Bob
   playerPrefab: {fileID: 2921054176395705313, guid: 47c93fdf787f6ae488b0d220cbe3f1a9, type: 3}
   runtimeAnimatorController: {fileID: 9100000, guid: e52ed9234b488b0449570da9e57ce474, type: 2}
   playerHealthAmount: 100

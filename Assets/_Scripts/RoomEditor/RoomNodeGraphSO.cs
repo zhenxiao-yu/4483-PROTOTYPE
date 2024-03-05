@@ -56,13 +56,11 @@ public class RoomNodeGraphSO : ScriptableObject
 
     #region Editor Code
 
-    // The following code should only run in the Unity Editor
 #if UNITY_EDITOR
 
     [HideInInspector] public RoomNodeSO roomNodeToDrawLineFrom = null;
     [HideInInspector] public Vector2 linePosition;
 
-    // Repopulate node dictionary every time a change is made in the editor
     public void OnValidate()
     {
         LoadRoomNodeDictionary();

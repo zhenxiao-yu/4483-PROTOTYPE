@@ -20,19 +20,17 @@ public class MovementDetailsSO : ScriptableObject
     #region Tooltip
     [Tooltip("If there is a roll movement- this is the roll speed")]
     #endregion
-    public float rollSpeed; // for player
+    public float rollSpeed;
     #region Tooltip
     [Tooltip("If there is a roll movement - this is the roll distance")]
     #endregion
-    public float rollDistance; // for player
+    public float rollDistance;
     #region Tooltip
     [Tooltip("If there is a roll movement - this is the cooldown time in seconds between roll actions")]
     #endregion
-    public float rollCooldownTime; // for player
+    public float rollCooldownTime;
 
-    /// <summary>
-    /// Get a random movement speed between the minimum and maximum values
-    /// </summary>
+
     public float GetMoveSpeed()
     {
         if (minMoveSpeed == maxMoveSpeed)

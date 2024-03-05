@@ -61,20 +61,15 @@ public class FireWeapon : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Handle weapon precharge.
-    /// </summary>
+
     private void WeaponPreCharge(FireWeaponEventArgs fireWeaponEventArgs)
     {
-        // Weapon precharge.
         if (fireWeaponEventArgs.firePreviousFrame)
         {
-            // Decrease precharge timer if fire button held previous frame.
             firePreChargeTimer -= Time.deltaTime;
         }
         else
         {
-            // else reset the precharge timer.
             ResetPrechargeTimer();
         }
     }
@@ -103,7 +98,6 @@ public class FireWeapon : MonoBehaviour
 
         if (currentAmmo != null)
         {
-            // Fire ammo routine.
             StartCoroutine(FireAmmoRoutine(currentAmmo, aimAngle, weaponAimAngle, weaponAimDirectionVector));
         }
     }
@@ -123,8 +117,6 @@ public class FireWeapon : MonoBehaviour
         {
             ammoSpawnInterval = 0f;
         }
-
-        // Loop for number of ammo per shot
         while (ammoCounter < ammoPerShot)
         {
             ammoCounter++;

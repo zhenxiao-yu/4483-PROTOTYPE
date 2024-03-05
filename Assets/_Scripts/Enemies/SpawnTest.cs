@@ -33,8 +33,6 @@ public class SpawnTest : MonoBehaviour
         if (roomTemplate != null)
         {
             testLevelSpawnList = roomTemplate.enemiesByLevelList;
-
-            // Create RandomSpawnableObject helper class
             randomEnemyHelperClass = new RandomSpawnableObject<EnemyDetailsSO>(testLevelSpawnList);
         }
     }

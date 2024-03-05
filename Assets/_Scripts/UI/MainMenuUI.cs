@@ -38,28 +38,17 @@ public class MainMenuUI : MonoBehaviour
 
     private void Start()
     {
-        // Play Music
         MusicManager.Instance.PlayMusic(GameResources.Instance.mainMenuMusic, 0f, 2f);
-
-        // Load Character selector scene additively
         SceneManager.LoadScene("CharacterSelectorScene", LoadSceneMode.Additive);
-
         returnToMainMenuButton.SetActive(false);
     }
 
 
-    /// <summary>
-    /// Called from the Play Game / Enter The Dungeon Button
-    /// </summary>
     public void PlayGame()
     {
         SceneManager.LoadScene("MainGameScene");
     }
 
-
-    /// <summary>
-    /// Called from the High Scores Button
-    /// </summary>
     public void LoadHighScores()
     {
         playButton.SetActive(false);
@@ -68,18 +57,12 @@ public class MainMenuUI : MonoBehaviour
         instructionsButton.SetActive(false);
         difficultyButton.SetActive(false);
         isHighScoresSceneLoaded = true;
-
         SceneManager.UnloadSceneAsync("CharacterSelectorScene");
-
         returnToMainMenuButton.SetActive(true);
-
-        // Load High Score scene additively
         SceneManager.LoadScene("HighScoreScene", LoadSceneMode.Additive);
     }
 
-    /// <summary>
-    /// Called from the Return To Main Menu Button
-    /// </summary>
+
     public void LoadCharacterSelector()
     {
         returnToMainMenuButton.SetActive(false);
@@ -94,20 +77,16 @@ public class MainMenuUI : MonoBehaviour
             SceneManager.UnloadSceneAsync("InstructionsScene");
             isInstructionSceneLoaded = false;
         }
-
         playButton.SetActive(true);
         quitButton.SetActive(true);
         difficultyButton.SetActive(true);
         highScoresButton.SetActive(true);
         instructionsButton.SetActive(true);
 
-        // Load character selector scene additively
         SceneManager.LoadScene("CharacterSelectorScene", LoadSceneMode.Additive);
     }
 
-    /// <summary>
-    /// Called from the Instructions Button
-    /// </summary>
+
     public void LoadInstructions()
     {
         playButton.SetActive(false);
@@ -116,18 +95,12 @@ public class MainMenuUI : MonoBehaviour
         difficultyButton.SetActive(false);
         instructionsButton.SetActive(false);
         isInstructionSceneLoaded = true;
-
         SceneManager.UnloadSceneAsync("CharacterSelectorScene");
-
         returnToMainMenuButton.SetActive(true);
-
-        // Load instructions scene additively
         SceneManager.LoadScene("InstructionsScene", LoadSceneMode.Additive);
     }
 
-    /// <summary>
-    /// Quit the game - this method is called from the onClick event set in the inspector
-    /// </summary>
+
     public void QuitGame()
     {
         Application.Quit();

@@ -26,7 +26,6 @@ public class AimWeapon : MonoBehaviour
 
     private void OnDisable()
     {
-        // Unsubscribe from aim weapon event
         aimWeaponEvent.OnWeaponAim -= AimWeaponEvent_OnWeaponAim;
     }
 

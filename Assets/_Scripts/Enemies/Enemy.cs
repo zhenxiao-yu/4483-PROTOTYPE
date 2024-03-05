@@ -74,13 +74,11 @@ public class Enemy : MonoBehaviour
 
     private void OnEnable()
     {
-        //subscribe to health event
         healthEvent.OnHealthChanged += HealthEvent_OnHealthLost;
     }
 
     private void OnDisable()
     {
-        //subscribe to health event
         healthEvent.OnHealthChanged -= HealthEvent_OnHealthLost;
     }
 
@@ -105,23 +103,16 @@ public class Enemy : MonoBehaviour
     public void EnemyInitialization(EnemyDetailsSO enemyDetails, int enemySpawnNumber, DungeonLevelSO dungeonLevel)
     {
         this.enemyDetails = enemyDetails;
-
         SetEnemyMovementUpdateFrame(enemySpawnNumber);
-
         SetEnemyStartingHealth(dungeonLevel);
-
         SetEnemyStartingWeapon();
-
         SetEnemyAnimationSpeed();
-
-        // Materialise enemy
         StartCoroutine(MaterializeEnemy());
     }
 
 
     private void SetEnemyMovementUpdateFrame(int enemySpawnNumber)
     {
-        // Set frame number that enemy should process it's updates
         enemyMovementAI.SetUpdateFrameNumber(enemySpawnNumber % Settings.targetFrameRateToSpreadPathfindingOver);
     }
 
@@ -143,12 +134,9 @@ public class Enemy : MonoBehaviour
 
     private void SetEnemyStartingWeapon()
     {
-        // Process if enemy has a weapon
         if (enemyDetails.enemyWeapon != null)
         {
             Weapon weapon = new Weapon() { weaponDetails = enemyDetails.enemyWeapon, weaponReloadTimer = 0f, weaponClipRemainingAmmo = enemyDetails.enemyWeapon.weaponClipAmmoCapacity, weaponRemainingAmmo = enemyDetails.enemyWeapon.weaponAmmoCapacity, isWeaponReloading = false };
-
-            //Set weapon for enemy
             setActiveWeaponEvent.CallSetActiveWeaponEvent(weapon);
 
         }
@@ -157,7 +145,6 @@ public class Enemy : MonoBehaviour
 
     private void SetEnemyAnimationSpeed()
     {
-        // Set animator speed to match movement speed
         animator.speed = enemyMovementAI.moveSpeed / Settings.baseSpeedForEnemyAnimations;
     }
 
@@ -175,6 +162,5 @@ public class Enemy : MonoBehaviour
         polygonCollider2D.enabled = isEnabled;
         enemyMovementAI.enabled = isEnabled;
         fireWeapon.enabled = isEnabled;
-
     }
 }

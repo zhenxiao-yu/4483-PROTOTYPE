@@ -19,7 +19,6 @@ public class EnemyWeaponAI : MonoBehaviour
 
     private void Awake()
     {
-        // Load Components
         enemy = GetComponent<Enemy>();
     }
 

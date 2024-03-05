@@ -1,0 +1,29 @@
+fileFormatVersion: 2
+guid: 343a07ddab88f52458846d9e2b77f6b5
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - playerDetails: {fileID: 11400000, guid: 49f4d94b8bc08db42b564667f5d40218, type: 2}
+  - healthEvent: {instanceID: 0}
+  - health: {instanceID: 0}
+  - destroyedEvent: {instanceID: 0}
+  - playerControl: {instanceID: 0}
+  - movementByVelocityEvent: {instanceID: 0}
+  - movementToPositionEvent: {instanceID: 0}
+  - idleEvent: {instanceID: 0}
+  - aimWeaponEvent: {instanceID: 0}
+  - fireWeaponEvent: {instanceID: 0}
+  - setActiveWeaponEvent: {instanceID: 0}
+  - activeWeapon: {instanceID: 0}
+  - weaponFiredEvent: {instanceID: 0}
+  - reloadWeaponEvent: {instanceID: 0}
+  - weaponReloadedEvent: {instanceID: 0}
+  - spriteRenderer: {instanceID: 0}
+  - animator: {instanceID: 0}
+  - sanitySlider: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -8,18 +8,19 @@ public class HealthUI : MonoBehaviour
 
     private void OnEnable()
     {
-        GameManager.Instance.GetPlayer().healthEvent.OnHealthChanged += HealthEvent_OnHealthChanged;
+        if (GameManager.Instance != null)
+            GameManager.Instance.GetPlayer().healthEvent.OnHealthChanged += HealthEvent_OnHealthChanged;
     }
 
     private void OnDisable()
     {
-        GameManager.Instance.GetPlayer().healthEvent.OnHealthChanged -= HealthEvent_OnHealthChanged;
+        if (GameManager.Instance != null)
+            GameManager.Instance.GetPlayer().healthEvent.OnHealthChanged -= HealthEvent_OnHealthChanged;
     }
 
     private void HealthEvent_OnHealthChanged(HealthEvent healthEvent, HealthEventArgs healthEventArgs)
     {
-        SetHealthBar(healthEventArgs);
-
+        UpdateHealthBar(healthEventArgs);
     }
 
     private void ClearHealthBar()
@@ -28,21 +29,19 @@ public class HealthUI : MonoBehaviour
         {
             Destroy(heartIcon);
         }
-
         healthHeartsList.Clear();
     }
 
-    private void SetHealthBar(HealthEventArgs healthEventArgs)
+    private void UpdateHealthBar(HealthEventArgs healthEventArgs)
     {
         ClearHealthBar();
-        int healthHearts = Mathf.CeilToInt(healthEventArgs.healthPercent * 100f / 20f);
+        int numHearts = Mathf.CeilToInt(healthEventArgs.healthPercent * 100f / 20f);
 
-        for (int i = 0; i < healthHearts; i++)
+        for (int i = 0; i < numHearts; i++)
         {
             GameObject heart = Instantiate(GameResources.Instance.heartPrefab, transform);
             heart.GetComponent<RectTransform>().anchoredPosition = new Vector2(Settings.uiHeartSpacing * i, 0f);
             healthHeartsList.Add(heart);
         }
-
     }
 }

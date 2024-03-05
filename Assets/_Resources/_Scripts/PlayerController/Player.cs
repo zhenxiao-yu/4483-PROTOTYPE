@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 
 #region REQUIRE COMPONENTS
@@ -45,6 +47,8 @@ public class Player : MonoBehaviour
     [HideInInspector] public PlayerDetailsSO playerDetails;
     [HideInInspector] public HealthEvent healthEvent;
     [HideInInspector] public Health health;
+    [HideInInspector] public float sanityLevel;
+
     [HideInInspector] public DestroyedEvent destroyedEvent;
     [HideInInspector] public PlayerControl playerControl;
     [HideInInspector] public MovementByVelocityEvent movementByVelocityEvent;
@@ -61,6 +65,7 @@ public class Player : MonoBehaviour
     [HideInInspector] public Animator animator;
 
     public List<Weapon> weaponList = new List<Weapon>();
+
 
     private void Awake()
     {
@@ -88,7 +93,7 @@ public class Player : MonoBehaviour
     {
         this.playerDetails = playerDetails;
         CreatePlayerStartingWeapons();
-        SetPlayerHealth();
+        SetPlayerHealth(); ;
     }
 
     private void OnEnable()
@@ -100,6 +105,8 @@ public class Player : MonoBehaviour
     {
         healthEvent.OnHealthChanged -= HealthEvent_OnHealthChanged;
     }
+
+
 
 
     private void HealthEvent_OnHealthChanged(HealthEvent healthEvent, HealthEventArgs healthEventArgs)
@@ -153,5 +160,11 @@ public class Player : MonoBehaviour
             if (weapon.weaponDetails == weaponDetails) return true;
         }
         return false;
+    }
+
+    // Add a property to get the current sanity level
+    public float GetSanityLevel()
+    {
+        return sanityLevel;
     }
 }

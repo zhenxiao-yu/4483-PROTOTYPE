@@ -4,39 +4,23 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+[DisallowMultipleComponent]
 public class WeaponStatusUI : MonoBehaviour
 {
-    #region Header OBJECT REFERENCES
-    [Space(10)]
-    [Header("OBJECT REFERENCES")]
-    #endregion Header OBJECT REFERENCES
-    #region Tooltip
-    [Tooltip("Populate with image component on the child WeaponImage gameobject")]
-    #endregion Tooltip
+    [Header("Object References")]
+    [Tooltip("Image component on the child WeaponImage GameObject")]
     [SerializeField] private Image weaponImage;
-    #region Tooltip
-    [Tooltip("Populate with the Transform from the child AmmoHolder gameobject")]
-    #endregion Tooltip
+    [Tooltip("Transform from the child AmmoHolder GameObject")]
     [SerializeField] private Transform ammoHolderTransform;
-    #region Tooltip
-    [Tooltip("Populate with the TextMeshPro-Text component on the child ReloadText gameobject")]
-    #endregion Tooltip
+    [Tooltip("TextMeshPro-Text component on the child ReloadText GameObject")]
     [SerializeField] private TextMeshProUGUI reloadText;
-    #region Tooltip
-    [Tooltip("Populate with the TextMeshPro-Text component on the child AmmoRemainingText gameobject")]
-    #endregion Tooltip
+    [Tooltip("TextMeshPro-Text component on the child AmmoRemainingText GameObject")]
     [SerializeField] private TextMeshProUGUI ammoRemainingText;
-    #region Tooltip
-    [Tooltip("Populate with the TextMeshPro-Text component on the child WeaponNameText gameobject")]
-    #endregion Tooltip
+    [Tooltip("TextMeshPro-Text component on the child WeaponNameText GameObject")]
     [SerializeField] private TextMeshProUGUI weaponNameText;
-    #region Tooltip
-    [Tooltip("Populate with the RectTransform of the child gameobject ReloadBar")]
-    #endregion Tooltip
-    [SerializeField] private Transform reloadBar;
-    #region Tooltip
-    [Tooltip("Populate with the Image component of the child gameobject BarImage")]
-    #endregion Tooltip
+    [Tooltip("RectTransform of the child ReloadBar GameObject")]
+    [SerializeField] private RectTransform reloadBar;
+    [Tooltip("Image component of the child BarImage GameObject")]
     [SerializeField] private Image barImage;
 
     private Player player;
@@ -46,36 +30,41 @@ public class WeaponStatusUI : MonoBehaviour
 
     private void Awake()
     {
-        // Get player
         player = GameManager.Instance.GetPlayer();
     }
 
     private void OnEnable()
     {
-        player.setActiveWeaponEvent.OnSetActiveWeapon += SetActiveWeaponEvent_OnSetActiveWeapon;
-        player.weaponFiredEvent.OnWeaponFired += WeaponFiredEvent_OnWeaponFired;
-        player.reloadWeaponEvent.OnReloadWeapon += ReloadWeaponEvent_OnWeaponReload;
-        player.weaponReloadedEvent.OnWeaponReloaded += WeaponReloadedEvent_OnWeaponReloaded;
+        if (player != null)
+        {
+            player.setActiveWeaponEvent.OnSetActiveWeapon += SetActiveWeaponEvent_OnSetActiveWeapon;
+            player.weaponFiredEvent.OnWeaponFired += WeaponFiredEvent_OnWeaponFired;
+            player.reloadWeaponEvent.OnReloadWeapon += ReloadWeaponEvent_OnWeaponReload;
+            player.weaponReloadedEvent.OnWeaponReloaded += WeaponReloadedEvent_OnWeaponReloaded;
+        }
     }
 
     private void OnDisable()
     {
-        player.setActiveWeaponEvent.OnSetActiveWeapon -= SetActiveWeaponEvent_OnSetActiveWeapon;
-        player.weaponFiredEvent.OnWeaponFired -= WeaponFiredEvent_OnWeaponFired;
-        player.reloadWeaponEvent.OnReloadWeapon -= ReloadWeaponEvent_OnWeaponReload;
-        player.weaponReloadedEvent.OnWeaponReloaded -= WeaponReloadedEvent_OnWeaponReloaded;
+        if (player != null)
+        {
+            player.setActiveWeaponEvent.OnSetActiveWeapon -= SetActiveWeaponEvent_OnSetActiveWeapon;
+            player.weaponFiredEvent.OnWeaponFired -= WeaponFiredEvent_OnWeaponFired;
+            player.reloadWeaponEvent.OnReloadWeapon -= ReloadWeaponEvent_OnWeaponReload;
+            player.weaponReloadedEvent.OnWeaponReloaded -= WeaponReloadedEvent_OnWeaponReloaded;
+        }
     }
 
     private void Start()
     {
-        SetActiveWeapon(player.activeWeapon.GetCurrentWeapon());
+        if (player != null)
+            SetActiveWeapon(player.activeWeapon.GetCurrentWeapon());
     }
 
     private void SetActiveWeaponEvent_OnSetActiveWeapon(SetActiveWeaponEvent setActiveWeaponEvent, SetActiveWeaponEventArgs setActiveWeaponEventArgs)
     {
         SetActiveWeapon(setActiveWeaponEventArgs.weapon);
     }
-
 
     private void WeaponFiredEvent_OnWeaponFired(WeaponFiredEvent weaponFiredEvent, WeaponFiredEventArgs weaponFiredEventArgs)
     {
@@ -93,7 +82,6 @@ public class WeaponStatusUI : MonoBehaviour
     {
         UpdateWeaponReloadBar(reloadWeaponEventArgs.weapon);
     }
-
 
     private void WeaponReloadedEvent_OnWeaponReloaded(WeaponReloadedEvent weaponReloadedEvent, WeaponReloadedEventArgs weaponReloadedEventArgs)
     {
@@ -119,39 +107,29 @@ public class WeaponStatusUI : MonoBehaviour
         UpdateAmmoLoadedIcons(weapon);
 
         if (weapon.isWeaponReloading)
-        {
             UpdateWeaponReloadBar(weapon);
-        }
         else
-        {
             ResetWeaponReloadBar();
-        }
 
         UpdateReloadText(weapon);
     }
-
 
     private void UpdateActiveWeaponImage(WeaponDetailsSO weaponDetails)
     {
         weaponImage.sprite = weaponDetails.weaponSprite;
     }
 
-
     private void UpdateActiveWeaponName(Weapon weapon)
     {
-        weaponNameText.text = "(" + weapon.weaponListPosition + ") " + weapon.weaponDetails.weaponName.ToUpper();
+        weaponNameText.text = $"({weapon.weaponListPosition}) {weapon.weaponDetails.weaponName.ToUpper()}";
     }
 
     private void UpdateAmmoText(Weapon weapon)
     {
         if (weapon.weaponDetails.hasInfiniteAmmo)
-        {
             ammoRemainingText.text = "INFINITE AMMO";
-        }
         else
-        {
-            ammoRemainingText.text = weapon.weaponRemainingAmmo.ToString() + " / " + weapon.weaponDetails.weaponAmmoCapacity.ToString();
-        }
+            ammoRemainingText.text = $"{weapon.weaponRemainingAmmo} / {weapon.weaponDetails.weaponAmmoCapacity}";
     }
 
     private void UpdateAmmoLoadedIcons(Weapon weapon)
@@ -160,26 +138,19 @@ public class WeaponStatusUI : MonoBehaviour
 
         for (int i = 0; i < weapon.weaponClipRemainingAmmo; i++)
         {
-            // Instantiate ammo icon prefab
             GameObject ammoIcon = Instantiate(GameResources.Instance.ammoIconPrefab, ammoHolderTransform);
-
             ammoIcon.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, Settings.uiAmmoIconSpacing * i);
-
             ammoIconList.Add(ammoIcon);
         }
     }
 
     private void ClearAmmoLoadedIcons()
     {
-        // Loop through icon gameobjects and destroy
         foreach (GameObject ammoIcon in ammoIconList)
-        {
             Destroy(ammoIcon);
-        }
 
         ammoIconList.Clear();
     }
-
 
     private void UpdateWeaponReloadBar(Weapon weapon)
     {
@@ -191,14 +162,14 @@ public class WeaponStatusUI : MonoBehaviour
         reloadWeaponCoroutine = StartCoroutine(UpdateWeaponReloadBarRoutine(weapon));
     }
 
-
     private IEnumerator UpdateWeaponReloadBarRoutine(Weapon currentWeapon)
     {
         barImage.color = Color.red;
+
         while (currentWeapon.isWeaponReloading)
         {
             float barFill = currentWeapon.weaponReloadTimer / currentWeapon.weaponDetails.weaponReloadTime;
-            reloadBar.transform.localScale = new Vector3(barFill, 1f, 1f);
+            reloadBar.localScale = new Vector3(barFill, 1f, 1f);
             yield return null;
         }
     }
@@ -207,21 +178,18 @@ public class WeaponStatusUI : MonoBehaviour
     {
         StopReloadWeaponCoroutine();
         barImage.color = Color.green;
-        reloadBar.transform.localScale = new Vector3(1f, 1f, 1f);
+        reloadBar.localScale = new Vector3(1f, 1f, 1f);
     }
-
 
     private void StopReloadWeaponCoroutine()
     {
         if (reloadWeaponCoroutine != null)
-        {
             StopCoroutine(reloadWeaponCoroutine);
-        }
     }
 
     private void UpdateReloadText(Weapon weapon)
     {
-        if ((!weapon.weaponDetails.hasInfiniteClipCapacity) && (weapon.weaponClipRemainingAmmo <= 0 || weapon.isWeaponReloading))
+        if (!weapon.weaponDetails.hasInfiniteClipCapacity && (weapon.weaponClipRemainingAmmo <= 0 || weapon.isWeaponReloading))
         {
             barImage.color = Color.red;
             StopBlinkingReloadTextCoroutine();
@@ -232,7 +200,6 @@ public class WeaponStatusUI : MonoBehaviour
             StopBlinkingReloadText();
         }
     }
-
 
     private IEnumerator StartBlinkingReloadTextRoutine()
     {
@@ -248,17 +215,13 @@ public class WeaponStatusUI : MonoBehaviour
     private void StopBlinkingReloadText()
     {
         StopBlinkingReloadTextCoroutine();
-
         reloadText.text = "";
     }
-
 
     private void StopBlinkingReloadTextCoroutine()
     {
         if (blinkingReloadTextCoroutine != null)
-        {
             StopCoroutine(blinkingReloadTextCoroutine);
-        }
     }
 
     #region Validation

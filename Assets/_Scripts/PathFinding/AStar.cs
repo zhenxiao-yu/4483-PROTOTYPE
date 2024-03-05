@@ -62,10 +62,7 @@ public static class AStar
     private static void EvaluateCurrentNodeNeighbours(Node currentNode, Node targetNode, GridNodes gridNodes, List<Node> openNodeList, HashSet<Node> closedNodeHashSet, InstantiatedRoom instantiatedRoom)
     {
         Vector2Int currentNodeGridPosition = currentNode.gridPosition;
-
         Node validNeighbourNode;
-
-        // Loop through all directions
         for (int i = -1; i <= 1; i++)
         {
             for (int j = -1; j <= 1; j++)

@@ -2,13 +2,8 @@ using UnityEngine;
 
 public class DisplayHighScoresUI : MonoBehaviour
 {
-    #region Header OBJECT REFERENCES
-    [Space(10)]
-    [Header("OBJECT REFERENCES")]
-    #endregion Header OBJECT REFERENCES
-    #region Tooltip
-    [Tooltip("Populate with the child Content gameobject Transform component")]
-    #endregion Tooltip
+    [Header("Object References")]
+    [Tooltip("Populate with the child Content GameObject's Transform component")]
     [SerializeField] private Transform contentAnchorTransform;
 
     private void Start()
@@ -16,23 +11,26 @@ public class DisplayHighScoresUI : MonoBehaviour
         DisplayScores();
     }
 
-
     private void DisplayScores()
     {
         HighScores highScores = HighScoreManager.Instance.GetHighScores();
-        GameObject scoreGameobject;
+        GameObject scoreGameObject;
         int rank = 0;
+
         foreach (Score score in highScores.scoreList)
         {
             rank++;
-            scoreGameobject = Instantiate(GameResources.Instance.scorePrefab, contentAnchorTransform);
-            ScorePrefab scorePrefab = scoreGameobject.GetComponent<ScorePrefab>();
-            scorePrefab.rankTMP.text = rank.ToString();
-            scorePrefab.nameTMP.text = score.playerName;
-            scorePrefab.levelTMP.text = score.levelDescription;
-            scorePrefab.scoreTMP.text = score.playerScore.ToString("###,###0");
+            scoreGameObject = Instantiate(GameResources.Instance.scorePrefab, contentAnchorTransform);
+            ScorePrefab scorePrefab = scoreGameObject.GetComponent<ScorePrefab>();
+            SetScoreDetails(scorePrefab, rank, score);
         }
+    }
 
-        scoreGameobject = Instantiate(GameResources.Instance.scorePrefab, contentAnchorTransform);
+    private void SetScoreDetails(ScorePrefab scorePrefab, int rank, Score score)
+    {
+        scorePrefab.rankTMP.text = rank.ToString();
+        scorePrefab.nameTMP.text = score.playerName;
+        scorePrefab.levelTMP.text = score.levelDescription;
+        scorePrefab.scoreTMP.text = score.playerScore.ToString("###,###0");
     }
 }

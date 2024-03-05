@@ -18,13 +18,11 @@ public class AStarTest : MonoBehaviour
 
     private void OnEnable()
     {
-        // Subscribe to the onRoomChanged event
         StaticEventHandler.OnRoomChanged += StaticEventHandler_OnRoomChanged;
     }
 
     private void OnDisable()
     {
-        // Unsubscribe to the onRoomChanged event
         StaticEventHandler.OnRoomChanged -= StaticEventHandler_OnRoomChanged;
     }
 
@@ -50,8 +48,6 @@ public class AStarTest : MonoBehaviour
     private void SetUpPathTilemap()
     {
         Transform tilemapCloneTransform = instantiatedRoom.transform.Find("Grid/Tilemap4_Front(Clone)");
-
-        // If the front tilemap hasn't been cloned then clone it
         if (tilemapCloneTransform == null)
         {
             pathTilemap = Instantiate(frontTilemap, grid.transform);
@@ -59,7 +55,6 @@ public class AStarTest : MonoBehaviour
             pathTilemap.GetComponent<TilemapRenderer>().material = GameResources.Instance.litMaterial;
             pathTilemap.gameObject.tag = "Untagged";
         }
-        // else use it
         else
         {
             pathTilemap = instantiatedRoom.transform.Find("Grid/Tilemap4_Front(Clone)").GetComponent<Tilemap>();

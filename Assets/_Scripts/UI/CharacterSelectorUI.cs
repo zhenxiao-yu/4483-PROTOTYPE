@@ -6,23 +6,26 @@ using TMPro;
 [DisallowMultipleComponent]
 public class CharacterSelectorUI : MonoBehaviour
 {
-    #region Tooltip
-    [Tooltip("Populate this with the child CharacterSelector gameobject")]
-    #endregion
+    [Tooltip("Populate this with the child CharacterSelector GameObject")]
     [SerializeField] private Transform characterSelector;
-    #region Tooltip
-    [Tooltip("Populate with the TextMeshPro component on the PlayerNameInput gameobject")]
-    #endregion
+
+    [Tooltip("Populate with the TextMeshPro component on the PlayerNameInput GameObject")]
     [SerializeField] private TMP_InputField playerNameInput;
+
     private List<PlayerDetailsSO> playerDetailsList;
     private GameObject playerSelectionPrefab;
     private CurrentPlayerSO currentPlayer;
     private List<GameObject> playerCharacterGameObjectList = new List<GameObject>();
-    private Coroutine coroutine;
+    private Coroutine moveCharacterCoroutine;
     private int selectedPlayerIndex = 0;
     private float offset = 4f;
 
     private void Awake()
+    {
+        InitializeReferences();
+    }
+
+    private void InitializeReferences()
     {
         playerSelectionPrefab = GameResources.Instance.playerSelectionPrefab;
         playerDetailsList = GameResources.Instance.playerDetailsList;
@@ -31,7 +34,12 @@ public class CharacterSelectorUI : MonoBehaviour
 
     private void Start()
     {
-        // Instatiate player characters
+        InstantiatePlayerCharacters();
+        SetInitialPlayerDetails();
+    }
+
+    private void InstantiatePlayerCharacters()
+    {
         for (int i = 0; i < playerDetailsList.Count; i++)
         {
             GameObject playerSelectionObject = Instantiate(playerSelectionPrefab, characterSelector);
@@ -39,14 +47,7 @@ public class CharacterSelectorUI : MonoBehaviour
             playerSelectionObject.transform.localPosition = new Vector3((offset * i), 0f, 0f);
             PopulatePlayerDetails(playerSelectionObject.GetComponent<PlayerSelectionUI>(), playerDetailsList[i]);
         }
-
-        playerNameInput.text = currentPlayer.playerName;
-
-        // Initialise the current player
-        currentPlayer.playerDetails = playerDetailsList[selectedPlayerIndex];
-
     }
-
 
     private void PopulatePlayerDetails(PlayerSelectionUI playerSelection, PlayerDetailsSO playerDetails)
     {
@@ -56,39 +57,45 @@ public class CharacterSelectorUI : MonoBehaviour
         playerSelection.animator.runtimeAnimatorController = playerDetails.runtimeAnimatorController;
     }
 
+    private void SetInitialPlayerDetails()
+    {
+        playerNameInput.text = currentPlayer.playerName;
+        currentPlayer.playerDetails = playerDetailsList[selectedPlayerIndex];
+    }
 
     public void NextCharacter()
     {
         if (selectedPlayerIndex >= playerDetailsList.Count - 1)
             return;
+
         selectedPlayerIndex++;
         currentPlayer.playerDetails = playerDetailsList[selectedPlayerIndex];
         MoveToSelectedCharacter(selectedPlayerIndex);
     }
 
-
-
     public void PreviousCharacter()
     {
         if (selectedPlayerIndex == 0)
             return;
+
         selectedPlayerIndex--;
         currentPlayer.playerDetails = playerDetailsList[selectedPlayerIndex];
         MoveToSelectedCharacter(selectedPlayerIndex);
     }
 
-
     private void MoveToSelectedCharacter(int index)
     {
-        if (coroutine != null)
-            StopCoroutine(coroutine);
-        coroutine = StartCoroutine(MoveToSelectedCharacterRoutine(index));
+        if (moveCharacterCoroutine != null)
+            StopCoroutine(moveCharacterCoroutine);
+
+        moveCharacterCoroutine = StartCoroutine(MoveToSelectedCharacterRoutine(index));
     }
 
     private IEnumerator MoveToSelectedCharacterRoutine(int index)
     {
         float currentLocalXPosition = characterSelector.localPosition.x;
         float targetLocalXPosition = index * offset * characterSelector.localScale.x * -1f;
+
         while (Mathf.Abs(currentLocalXPosition - targetLocalXPosition) > 0.01f)
         {
             currentLocalXPosition = Mathf.Lerp(currentLocalXPosition, targetLocalXPosition, Time.deltaTime * 10f);
@@ -99,21 +106,25 @@ public class CharacterSelectorUI : MonoBehaviour
         characterSelector.localPosition = new Vector3(targetLocalXPosition, characterSelector.localPosition.y, 0f);
     }
 
-
     public void UpdatePlayerName()
     {
         playerNameInput.text = playerNameInput.text.ToUpper();
         currentPlayer.playerName = playerNameInput.text;
     }
 
-    #region Validation
 #if UNITY_EDITOR
     private void OnValidate()
     {
-        HelperUtilities.ValidateCheckNullValue(this, nameof(characterSelector), characterSelector);
-        HelperUtilities.ValidateCheckNullValue(this, nameof(playerNameInput), playerNameInput);
+        ValidateRequiredFields();
+    }
+
+    private void ValidateRequiredFields()
+    {
+        if (characterSelector == null)
+            Debug.LogError("Character selector is not assigned!", this);
+
+        if (playerNameInput == null)
+            Debug.LogError("Player name input is not assigned!", this);
     }
 #endif
-    #endregion
-
 }

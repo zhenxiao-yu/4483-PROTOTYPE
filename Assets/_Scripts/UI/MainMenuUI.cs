@@ -10,19 +10,19 @@ public class MainMenuUI : MonoBehaviour
     [Header("OBJECT REFERENCES")]
     #endregion Header OBJECT REFERENCES
     #region Tooltip
-    [Tooltip("Populate with the enter the dungeon play button gameobject")]
+    [Tooltip("Populate with the play button")]
     #endregion Tooltip
     [SerializeField] private GameObject playButton;
     #region Tooltip
-    [Tooltip("Populate with the quit button gameobject")]
+    [Tooltip("Populate with the quit button")]
     #endregion
     [SerializeField] private GameObject difficultyButton;
     #region Tooltip
-    [Tooltip("Populate with the difficulty button button gameobject")]
+    [Tooltip("Populate with the difficulty button")]
     #endregion
     [SerializeField] private GameObject quitButton;
     #region Tooltip
-    [Tooltip("Populate with the high scores button gameobject")]
+    [Tooltip("Populate with the leader board button")]
     #endregion
     [SerializeField] private GameObject highScoresButton;
     #region Tooltip
@@ -109,7 +109,6 @@ public class MainMenuUI : MonoBehaviour
 
     #region Validation
 #if UNITY_EDITOR
-    // Validate the scriptable object details entered
     private void OnValidate()
     {
         HelperUtilities.ValidateCheckNullValue(this, nameof(playButton), playButton);

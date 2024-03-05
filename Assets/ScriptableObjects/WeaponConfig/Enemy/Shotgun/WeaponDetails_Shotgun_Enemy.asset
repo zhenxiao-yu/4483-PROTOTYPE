@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WeaponDetails_Shotgun_Enemy
   m_EditorClassIdentifier: 
   weaponName: Shot Gun Enemy
-  weaponSprite: {fileID: 21300000, guid: 957e7c5a4532c7b4fa28cd31bf5aee5d, type: 3}
+  weaponSprite: {fileID: 21300000, guid: 19573841a9af1274b87ea013145080fb, type: 3}
   weaponShootPosition: {x: 1.376, y: 0.208, z: 0}
   weaponCurrentAmmo: {fileID: 11400000, guid: 1fde2ac317e294045bf911c6b3696c30, type: 2}
   weaponShootEffect: {fileID: 11400000, guid: a23f12a2b5a282849bb09c0971239002, type: 2}

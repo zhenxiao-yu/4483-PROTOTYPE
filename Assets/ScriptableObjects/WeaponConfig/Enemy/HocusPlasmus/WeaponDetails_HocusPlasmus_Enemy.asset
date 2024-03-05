@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WeaponDetails_HocusPlasmus_Enemy
   m_EditorClassIdentifier: 
   weaponName: Hocus Plasmus Pattern
-  weaponSprite: {fileID: 21300000, guid: 14929ad3eca0ef941a96820c56a5deba, type: 3}
+  weaponSprite: {fileID: 21300008, guid: 3872de413011f7640ad14ce057e97d90, type: 3}
   weaponShootPosition: {x: 0.688, y: 0.312, z: 0}
   weaponCurrentAmmo: {fileID: 11400000, guid: 2ecb91b788dc97b42aba6a9f6d1ecec3, type: 2}
   weaponShootEffect: {fileID: 11400000, guid: ca1d16b9ec3987046a69ba56addadc67, type: 2}
@@ -23,6 +23,6 @@ MonoBehaviour:
   hasInfiniteClipCapacity: 1
   weaponClipAmmoCapacity: 0
   weaponAmmoCapacity: 0
-  weaponFireRate: 3
+  weaponFireRate: 3.5
   weaponPrechargeTime: 0
   weaponReloadTime: 0

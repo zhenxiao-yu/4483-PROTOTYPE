@@ -29,7 +29,6 @@ public class Health : MonoBehaviour
 
     private void Awake()
     {
-        //Load compnents
         healthEvent = GetComponent<HealthEvent>();
     }
 

@@ -81,11 +81,7 @@ public class DungeonBuilder : SingletonMonobehaviour<DungeonBuilder>
 
     private bool AttemptToBuildRandomDungeon(RoomNodeGraphSO roomNodeGraph)
     {
-
-        // Create Open Room Node Queue
         Queue<RoomNodeSO> openRoomNodeQueue = new Queue<RoomNodeSO>();
-
-        // Add Entrance Node To Room Node Queue From Room Node Graph
         RoomNodeSO entranceNode = roomNodeGraph.GetRoomNode(roomNodeTypeList.list.Find(x => x.isEntrance));
 
         if (entranceNode != null)
@@ -95,17 +91,11 @@ public class DungeonBuilder : SingletonMonobehaviour<DungeonBuilder>
         else
         {
             Debug.Log("No Entrance Node");
-            return false;  // Dungeon Not Built
+            return false; 
         }
 
-        // Start with no room overlaps
         bool noRoomOverlaps = true;
-
-
-        // Process open room nodes queue
         noRoomOverlaps = ProcessRoomsInOpenRoomNodeQueue(roomNodeGraph, openRoomNodeQueue, noRoomOverlaps);
-
-        // If all the room nodes have been processed and there hasn't been a room overlap then return true
         if (openRoomNodeQueue.Count == 0 && noRoomOverlaps)
         {
             return true;

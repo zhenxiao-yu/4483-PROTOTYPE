@@ -6,7 +6,7 @@ https://markyu615.itch.io/4483-prototype-mark-yu
 
 "Descent into Madness" is a  2D rogue-like horror shooter that transports players into the eerie realm of Karnoxia. In this nightmarish dimension, players face relentless pursuit from monstrous entities while battling a steadily declining sanity. As the protagonist, players must navigate through a maze-like labyrinth, scavenging for resources and upgrading their gear to outwit increasingly formidable enemies and conquer challenging bosses. Survival hinges not only on managing health but also on preserving sanity, which warps perception and intensifies the surreal horrors of Karnoxia.
 
-**"SLICES" Included in the current prototype.**
+**"SLICES" that are included in the current prototype.**
 
 - Procedural random room generation for levels 1 and 2
 - UI minimap
@@ -14,32 +14,36 @@ https://markyu615.itch.io/4483-prototype-mark-yu
 - 4 enemy types: melee, shooting (rapid straight), shooting (pattern1), shooting(pattern 2)
 - Custom room (small, medium, huge, bonus, hallway) templates for maze generation 
 - 2D Sound Manager 
-- Openable Chess
+- Openable Chests with random loot drop distribution 
 - 3 Playable characters
-- Scene Transitions
+- Scene Transition animations 
 - Multiple Firearm options with different stats
-- tables, breakable vases
+- flippable tables
+- breakable vases
 - Post Processing, Lighting, Filter using Unity Universal Render Pipeline
 - Pause UI, Scoreboard UI, Main Menu UI, Instructions UI, Play HUD 
 - Horror visuals / SFX
-- Enemies get tougher in each level.
-- Game Manager for tracking start, win, and lose.
+- Enemies get more challenging at each level (balance)
+- Game Manager for tracking start, win, scores, hit combo multiplier and lose.
 - Some assets animated
-- Working Score System 
+- Working Score/Local Leaderboard System
+- UI for sanity mechanic
+- Shooting VFX 
 
 **Working In Progress for future release:** 
 
-- Storyline (UI)
-- Quest System 
+- Storyline (Dialog System UI)
+- Quest System (Open Doors upon completing objectives)
 - Simple Inventory system for holding Puzzle items 
-- Puzzles
-- Traps
-- Level Select UI
-- Better Enemy AI / exploding enemy
-- The sanity Level  decreases when a player takes damage and changes the player's perception (main camera post-proception)
-- More room types
-- Ability to change difficulty
-- Ability to change character loadout
+- Puzzle Designs 
+- Trap (Prefab deisign)
+- Level SelectION UI
+- Better Enemy AI / Animation
+- Boss Level
+- The sanity Level  decreases when a player takes damage and changes the player's perception (changes post-processingg filter value)
+- More room templates for more complex puzzles
+- Ability to change game difficulty (maybe)
+- Ability to change character loadout (maybe)
 
 ## Installation
 

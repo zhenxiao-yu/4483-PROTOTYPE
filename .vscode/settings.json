@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "4483-PROTOTYPE.sln"
+    "dotnet.defaultSolution": "4483-PROTOTYPE.sln",
+    "dotnet.preferCSharpExtension": true
 }

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e4922637f808a04e836fdf543da98e4, type: 3}
   m_Name: MovementDetails_Player_Thief
   m_EditorClassIdentifier: 
-  minMoveSpeed: 9
-  maxMoveSpeed: 9
+  minMoveSpeed: 8
+  maxMoveSpeed: 10
   rollSpeed: 10
-  rollDistance: 8
-  rollCooldownTime: 0.2
+  rollDistance: 8.5
+  rollCooldownTime: 0.15

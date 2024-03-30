@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2641970645706886627, guid: 4cb3e552ceea8ac4ca5038aa82623e30, type: 3}
       propertyPath: m_Color.b
-      value: 0.47058824
+      value: 0.2652394
       objectReference: {fileID: 0}
     - target: {fileID: 2641970645706886627, guid: 4cb3e552ceea8ac4ca5038aa82623e30, type: 3}
       propertyPath: m_Color.g
-      value: 0.4392157
+      value: 0.2216981
       objectReference: {fileID: 0}
     - target: {fileID: 2641970645706886627, guid: 4cb3e552ceea8ac4ca5038aa82623e30, type: 3}
       propertyPath: m_Color.r
@@ -22,15 +22,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3806988754070336582, guid: 4cb3e552ceea8ac4ca5038aa82623e30, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.57
+      value: 0.42
       objectReference: {fileID: 0}
     - target: {fileID: 3806988754070336582, guid: 4cb3e552ceea8ac4ca5038aa82623e30, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.67
+      value: 0.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 3806988754070336582, guid: 4cb3e552ceea8ac4ca5038aa82623e30, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 3806988754070336582, guid: 4cb3e552ceea8ac4ca5038aa82623e30, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.58
       objectReference: {fileID: 0}
     - target: {fileID: 3849703101624372809, guid: 4cb3e552ceea8ac4ca5038aa82623e30, type: 3}
       propertyPath: m_Name
-      value: SlimeBlock_Red
+      value: Witch_Rage
       objectReference: {fileID: 0}
     - target: {fileID: 4598106353317118172, guid: 4cb3e552ceea8ac4ca5038aa82623e30, type: 3}
       propertyPath: movementDetails
@@ -63,6 +71,10 @@ PrefabInstance:
     - target: {fileID: 6740223625582926456, guid: 4cb3e552ceea8ac4ca5038aa82623e30, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7820440283792524281, guid: 4cb3e552ceea8ac4ca5038aa82623e30, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 8729203639835487090, guid: 4cb3e552ceea8ac4ca5038aa82623e30, type: 3}
       propertyPath: m_RootOrder

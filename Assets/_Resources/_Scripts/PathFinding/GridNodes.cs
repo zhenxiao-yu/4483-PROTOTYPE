@@ -10,11 +10,6 @@ public class GridNodes
 
     private Node[,] gridNode;
 
-    /// <summary>
-    /// Initializes a new instance of the <see cref="GridNodes"/> class with the specified width and height.
-    /// </summary>
-    /// <param name="width">The width of the grid.</param>
-    /// <param name="height">The height of the grid.</param>
     public GridNodes(int width, int height)
     {
         this.width = width;
@@ -29,13 +24,7 @@ public class GridNodes
         }
     }
 
-    /// <summary>
-    /// Retrieves the node at the specified position.
-    /// </summary>
-    /// <param name="xPosition">The x-coordinate of the node.</param>
-    /// <param name="yPosition">The y-coordinate of the node.</param>
-    /// <returns>The node at the specified position.</returns>
-    /// <exception cref="System.ArgumentOutOfRangeException">Thrown when the requested position is out of range.</exception>
+    
     public Node GetGridNode(int xPosition, int yPosition)
     {
         if (xPosition < 0 || xPosition >= width || yPosition < 0 || yPosition >= height)

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e4922637f808a04e836fdf543da98e4, type: 3}
-  m_Name: MovementDetails_MudRock_Brown
+  m_Name: MovementDetails_Hedusa_Blue
   m_EditorClassIdentifier: 
-  minMoveSpeed: 3
-  maxMoveSpeed: 5
+  minMoveSpeed: 3.68
+  maxMoveSpeed: 4.78
   rollSpeed: 0
   rollDistance: 0
   rollCooldownTime: 0

@@ -9,32 +9,46 @@ public class MaterializeEffect : MonoBehaviour
         Material materializeMaterial = new Material(materializeShader);
 
         materializeMaterial.SetColor("_EmissionColor", materializeColor);
-
-        // Set materialize material in sprite renderers
         foreach (SpriteRenderer spriteRenderer in spriteRendererArray)
         {
             spriteRenderer.material = materializeMaterial;
         }
 
         float dissolveAmount = 0f;
+        // Initialize pulseIntensity and a boolean to control the direction of the pulse
+        float pulseIntensity = 1f;
+        bool increasingIntensity = true;
 
-        // materialize enemy
         while (dissolveAmount < 1f)
         {
             dissolveAmount += Time.deltaTime / materializeTime;
-
             materializeMaterial.SetFloat("_DissolveAmount", dissolveAmount);
 
-            yield return null;
+            // Pulse logic
+            if (increasingIntensity)
+            {
+                pulseIntensity += Time.deltaTime; // Increase intensity
+                if (pulseIntensity >= 2) // Example peak intensity
+                {
+                    increasingIntensity = false; // Reverse direction at peak
+                }
+            }
+            else
+            {
+                pulseIntensity -= Time.deltaTime; // Decrease intensity
+                if (pulseIntensity <= 1) // Return to base intensity
+                {
+                    increasingIntensity = true; // Reverse direction at base
+                }
+            }
+            materializeMaterial.SetFloat("_PulseIntensity", pulseIntensity);
 
+            yield return null;
         }
 
-
-        // Set standard material in sprite renderers
         foreach (SpriteRenderer spriteRenderer in spriteRendererArray)
         {
             spriteRenderer.material = normalMaterial;
         }
-
     }
 }

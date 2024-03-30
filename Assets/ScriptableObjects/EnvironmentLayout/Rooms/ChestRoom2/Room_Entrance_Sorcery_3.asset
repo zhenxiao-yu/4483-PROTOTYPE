@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2708e4084c4a1534ba646096300f778c, type: 3}
   m_Name: Room_Entrance_Sorcery_3
   m_EditorClassIdentifier: 
-  guid: 2b11d4029efaead40908e17522ade9c2
-  prefab: {fileID: 4327421925113694216, guid: b9e12a42d9301d84fa15eb42e4e4fdd8, type: 3}
-  previousPrefab: {fileID: 4327421925113694216, guid: b9e12a42d9301d84fa15eb42e4e4fdd8, type: 3}
+  guid: f0e6dc4cabe810a47b66211dcf94986d
+  prefab: {fileID: 7224931148630070477, guid: 98aec9cd5174b2042a2251f87cc1ef79, type: 3}
+  previousPrefab: {fileID: 7224931148630070477, guid: 98aec9cd5174b2042a2251f87cc1ef79, type: 3}
   battleMusic: {fileID: 11400000, guid: 1c43eb8bfd83ff74ba7120088d448881, type: 2}
   ambientMusic: {fileID: 11400000, guid: beea8b2feefcd0a4cbc6476d26d66796, type: 2}
   roomNodeType: {fileID: 11400000, guid: dca5188b0c44f534d98e12a29c65f1a4, type: 2}

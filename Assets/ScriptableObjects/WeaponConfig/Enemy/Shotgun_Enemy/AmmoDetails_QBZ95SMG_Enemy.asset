@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b4954adab2da614ca52023de4ebf134, type: 3}
-  m_Name: AmmoDetails_MP7
+  m_Name: AmmoDetails_QBZ95SMG_Enemy
   m_EditorClassIdentifier: 
-  ammoName: MP7 Ammo
-  isPlayerAmmo: 1
-  ammoSprite: {fileID: 21300000, guid: e36e8bbd18074d341b170885ac002038, type: 3}
+  ammoName: Enemy QBZ95SMG Ammo
+  isPlayerAmmo: 0
+  ammoSprite: {fileID: 21300000, guid: 4df9cc7131cd27f4288bca5e76c82034, type: 3}
   ammoPrefabArray:
-  - {fileID: 3704831762367981905, guid: e7548ec462fb85d40b63328f29de0101, type: 3}
-  ammoMaterial: {fileID: 2100000, guid: 33a55999e44f4724191171c59fc64319, type: 2}
+  - {fileID: 3704831762367981905, guid: fc4fde3eafea77848affd59c4cc80601, type: 3}
+  ammoMaterial: {fileID: 2100000, guid: a8f373dc317a30d40a68b73a78ce1d09, type: 2}
   ammoChargeTime: 0
   ammoChargeMaterial: {fileID: 0}
-  ammoHitEffect: {fileID: 11400000, guid: a6d9428a8f4ef3342bff712775aef1aa, type: 2}
-  ammoDamage: 11
-  ammoSpeedMin: 18
-  ammoSpeedMax: 18
-  ammoRange: 11
+  ammoHitEffect: {fileID: 11400000, guid: a377df91bde90b14d858317398ba405a, type: 2}
+  ammoDamage: 10
+  ammoSpeedMin: 9
+  ammoSpeedMax: 13
+  ammoRange: 20
   ammoRotationSpeed: 1
   ammoSpreadMin: 2
-  ammoSpreadMax: 4
+  ammoSpreadMax: 5
   ammoSpawnAmountMin: 1
   ammoSpawnAmountMax: 1
   ammoSpawnIntervalMin: 0

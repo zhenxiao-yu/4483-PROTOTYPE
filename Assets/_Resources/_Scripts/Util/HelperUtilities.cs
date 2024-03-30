@@ -58,8 +58,6 @@ public static class HelperUtilities
     {
         AimDirection aimDirection;
 
-        // Set player direction
-        //Up Right
         if (angleDegrees >= 22f && angleDegrees <= 67f)
         {
             aimDirection = AimDirection.UpRight;
@@ -101,8 +99,6 @@ public static class HelperUtilities
     public static float LinearToDecibels(int linear)
     {
         float linearScaleRange = 20f;
-
-        // formula to convert from the linear scale to the logarithmic decibel scale
         return Mathf.Log10((float)linear / linearScaleRange) * 20f;
     }
 
@@ -211,7 +207,6 @@ public static class HelperUtilities
                 error = true;
             }
         }
-
         return error;
     }
 
@@ -224,11 +219,8 @@ public static class HelperUtilities
             Debug.Log(fieldNameMinimum + " must be less than or equal to " + fieldNameMaximum + " in object " + thisObject.name.ToString());
             error = true;
         }
-
         if (ValidateCheckPositiveValue(thisObject, fieldNameMinimum, valueToCheckMinimum, isZeroAllowed)) error = true;
-
         if (ValidateCheckPositiveValue(thisObject, fieldNameMaximum, valueToCheckMaximum, isZeroAllowed)) error = true;
-
         return error;
     }
 
@@ -241,11 +233,8 @@ public static class HelperUtilities
             Debug.Log(fieldNameMinimum + " must be less than or equal to " + fieldNameMaximum + " in object " + thisObject.name.ToString());
             error = true;
         }
-
         if (ValidateCheckPositiveValue(thisObject, fieldNameMinimum, valueToCheckMinimum, isZeroAllowed)) error = true;
-
         if (ValidateCheckPositiveValue(thisObject, fieldNameMaximum, valueToCheckMaximum, isZeroAllowed)) error = true;
-
         return error;
     }
 
@@ -253,15 +242,10 @@ public static class HelperUtilities
     public static Vector3 GetSpawnPositionNearestToPlayer(Vector3 playerPosition)
     {
         Room currentRoom = GameManager.Instance.GetCurrentRoom();
-
         Grid grid = currentRoom.instantiatedRoom.grid;
-
         Vector3 nearestSpawnPosition = new Vector3(10000f, 10000f, 0f);
-
-        // Loop through room spawn positions
         foreach (Vector2Int spawnPositionGrid in currentRoom.spawnPositionArray)
         {
-            // convert the spawn grid positions to world positions
             Vector3 spawnPositionWorld = grid.CellToWorld((Vector3Int)spawnPositionGrid);
 
             if (Vector3.Distance(spawnPositionWorld, playerPosition) < Vector3.Distance(nearestSpawnPosition, playerPosition))

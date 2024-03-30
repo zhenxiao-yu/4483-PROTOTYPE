@@ -16,10 +16,10 @@ MonoBehaviour:
     serializedVersion: 2
     key0: {r: 1, g: 1, b: 1, a: 1}
     key1: {r: 0.96632445, g: 1, b: 0, a: 1}
-    key2: {r: 1, g: 0, b: 0, a: 0.8117647}
-    key3: {r: 1, g: 0, b: 0, a: 0}
-    key4: {r: 1, g: 0, b: 0, a: 0}
-    key5: {r: 1, g: 0, b: 0, a: 0}
+    key2: {r: 0.54051507, g: 1, b: 0, a: 0.868042}
+    key3: {r: 0.28774196, g: 1, b: 0.033018887, a: 0.8117647}
+    key4: {r: 0.25109896, g: 0.5660378, b: 0.08276967, a: 0}
+    key5: {r: 0.073585734, g: 0.7075472, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
@@ -32,15 +32,16 @@ MonoBehaviour:
     ctime7: 65535
     atime0: 0
     atime1: 28142
-    atime2: 65535
-    atime3: 0
+    atime2: 50115
+    atime3: 65535
     atime4: 0
     atime5: 0
     atime6: 0
     atime7: 0
     m_Mode: 0
+    m_ColorSpace: -1
     m_NumColorKeys: 8
-    m_NumAlphaKeys: 3
+    m_NumAlphaKeys: 4
   duration: 0.1
   startParticleSize: 0.25
   startParticleSpeed: 3

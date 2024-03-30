@@ -19,12 +19,9 @@ public class MoveItem : MonoBehaviour
 
     private void Awake()
     {
-        // Get component references
         boxCollider2D = GetComponent<BoxCollider2D>();
         rigidBody2D = GetComponent<Rigidbody2D>();
         instantiatedRoom = GetComponentInParent<InstantiatedRoom>();
-
-        // Add this item to item obstacles array
         instantiatedRoom.moveableItemsList.Add(this);
     }
 

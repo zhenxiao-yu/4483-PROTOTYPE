@@ -225,10 +225,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
 
             case GameState.levelCompleted:
-
-                // Display level completed text
                 StartCoroutine(LevelCompleted());
-
                 break;
 
             case GameState.gameWon:
@@ -358,9 +355,6 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
         // Display Dungeon Level Text
         StartCoroutine(DisplayDungeonLevelText());
-
-        //// ** Demo code
-        //RoomEnemiesDefeated();
     }
 
 
@@ -372,7 +366,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         yield return StartCoroutine(DisplayMessageRoutine(messageText, Color.white, 2f));
         GetPlayer().playerControl.EnablePlayer();
         // Fade In
-        yield return StartCoroutine(Fade(1f, 0f, 2f, Color.green));
+        yield return StartCoroutine(Fade(1f, 0f, 2f, Color.red));
 
     }
 
@@ -410,9 +404,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         bossRoom.UnlockDoors(0f);
         yield return new WaitForSeconds(2f);
         yield return StartCoroutine(Fade(0f, 1f, 2f, new Color(0f, 0f, 0f, 0.4f)));
-        yield return StartCoroutine(DisplayMessageRoutine("YOU ARE DOING WELL...  " 
-        + GameResources.Instance.currentPlayer.playerName + 
-        ". THERES ONLY ONE ELITE ENEMY LEFT \n\n\n GO FIND AND DEFEAT IT TO UNLOCK THE NEXT LEVEL...\n\n DON'DIE NOW, TRAVELER", Color.white, 5f));
+        yield return StartCoroutine(DisplayMessageRoutine("Still Alive?", Color.red, 2f));
+        yield return StartCoroutine(DisplayMessageRoutine("NOT BAD...  " + GameResources.Instance.currentPlayer.playerName + ". \n\n BUT THERE'S STILL THE BOSS! \n\n\n USE YOUR MAP TO TELEPORT TO THE BOSS MARKER AND DEFEAT IT...\n\n DON'T DIE NOW, DETECTIVE", Color.white, 5f));
         yield return StartCoroutine(Fade(1f, 0f, 2f, new Color(0f, 0f, 0f, 0.4f)));
 
     }
@@ -422,8 +415,10 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         gameState = GameState.playingLevel;
         yield return new WaitForSeconds(3f);
         yield return StartCoroutine(Fade(0f, 1f, 2f, new Color(0f, 0f, 0f, 0.4f)));
-        yield return StartCoroutine(DisplayMessageRoutine("AS THE LAST SHADOWY FIGURE FALLS... " + GameResources.Instance.currentPlayer.playerName + "HAVE SURVIVED THIS REALM! WHAT A NIGHT!", Color.red, 5f));
-        yield return StartCoroutine(DisplayMessageRoutine("REVISIT ROOM FOR ANY MISSED CLUES ....THEN PRESS RETURN\n\nTO DESCEND FURTHER INTO THE MADNESS OF THIS REALM", Color.white, 5f));
+        // Display the congratulatory message
+        yield return StartCoroutine(DisplayMessageRoutine("CONGRATULATIONS!\nYou've survived this nightmare... for now.", Color.green, 5f));
+        yield return StartCoroutine(DisplayMessageRoutine("But the horror is far from over.\nThe shadows whisper of darker challenges ahead, you are still trapped.", Color.red, 5f));
+        yield return StartCoroutine(DisplayMessageRoutine("YOU MAY REVISIT ROOM FOR ANY MISSED CLUES... \nWHEN READY, PRESS [RETURN]\n\nTO DESCEND FURTHER INTO THE MADNESS...", Color.white, 5f));
         yield return StartCoroutine(Fade(1f, 0f, 2f, new Color(0f, 0f, 0f, 0.4f)));
         while (!Input.GetKeyDown(KeyCode.Return))
         {
@@ -431,7 +426,6 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         }
         yield return null;
         currentDungeonLevelListIndex++;
-
         PlayDungeonLevel(currentDungeonLevelListIndex);
     }
 
@@ -462,7 +456,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         string rankText;
         if (rank > 0 && rank <= Settings.numberOfHighScoresToSave)
         {
-            rankText = "YOU ARE RANKED " + rank.ToString("#0") + " AS TOP " + Settings.numberOfHighScoresToSave.ToString("#0") + " GOOD LUCK NEXT RUN";
+            rankText = "YOU ARE RANKED " + rank.ToString("#0") + " AS TOP " + Settings.numberOfHighScoresToSave.ToString("#0") + " SEE YOU IN ANOTHER LIFE & GOOD LUCK";
 
             string name = GameResources.Instance.currentPlayer.playerName;
 
@@ -480,9 +474,9 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         yield return new WaitForSeconds(1f);
         yield return StartCoroutine(Fade(0f, 1f, 2f, Color.black));
 
-        yield return StartCoroutine(DisplayMessageRoutine("STill ALIVE, " + GameResources.Instance.currentPlayer.playerName + "? THAT'S IMPRESSIVE, TOO BAD YOU CAN'T LEAVE YET... READY FOR THE NEXT LEVEL?", Color.white, 3f));
+        yield return StartCoroutine(DisplayMessageRoutine("STill ALIVE, " + GameResources.Instance.currentPlayer.playerName + "? THAT'S IMPRESSIVE. \nTOO BAD YOU CAN'T LEAVE YET... READY FOR THE NEXT LEVEL?", Color.white, 5f));
         yield return StartCoroutine(DisplayMessageRoutine("TOTAL SOULS FREED " + gameScore.ToString("###,###0") + "\n\n\n" + rankText, Color.green, 4f));
-        yield return StartCoroutine(DisplayMessageRoutine("PRESS [RETURN] TO RESTART THE GAME", Color.white, 0f));
+        yield return StartCoroutine(DisplayMessageRoutine("PRESS [RETURN] TO RESTART THE GAME", Color.green, 0f));
         gameState = GameState.restartGame;
     }
 
@@ -515,8 +509,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         {
             enemy.gameObject.SetActive(false);
         }
-
-        yield return StartCoroutine(DisplayMessageRoutine("AHHH " + GameResources.Instance.currentPlayer.playerName + "! WHAT IS THIS VOID?! I CAN HEAR THOSE SHADOWS WHISPERING... ", Color.red, 2f));
+        yield return StartCoroutine(DisplayMessageRoutine("NOOO! YOU'RE TRAPPED IN THE VOID...\n THE WHISPERS, THEY'RE CLOSING IN... \n\n CAN YOU FEEL THEM?", Color.red, 5f));
+        yield return StartCoroutine(DisplayMessageRoutine("DETECTIVE " + GameResources.Instance.currentPlayer.playerName.ToUpper() + ", THE LABYRINTH CONSUMES YOU... \n UNSEEN HORRORS, BORN OF MADNESS AND THE VOID,\n WHISPER YOUR DOOM.\n ESCAPE IS BUT A FLEETING DREAM.", Color.red, 4f));
         yield return StartCoroutine(DisplayMessageRoutine("YOU SCORED " + gameScore.ToString("###,###0") + "\n\n" + rankText, Color.white, 4f));
         yield return StartCoroutine(DisplayMessageRoutine("PRESS [RETURN] TO RESTART THE GAME", Color.white, 0f));
 

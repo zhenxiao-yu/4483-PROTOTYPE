@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad5c1cce80175cd4a81871e060bb984d, type: 3}
-  m_Name: SoundEffect_MP7_Fire
+  m_Name: SoundEffect_UZI_Fire
   m_EditorClassIdentifier: 
   soundEffectName: MP7 Fire
   soundPrefab: {fileID: 5492745614361693508, guid: 2e23059ee267e5d42bbb7a0487404eb3, type: 3}

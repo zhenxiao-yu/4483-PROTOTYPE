@@ -14,7 +14,6 @@ public class LightFlicker : MonoBehaviour
 
     private void Awake()
     {
-        // Load components
         light2D = GetComponentInChildren<Light2D>();
     }
 

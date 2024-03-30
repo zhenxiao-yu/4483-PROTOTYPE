@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: WeaponDetails_QBZ95SMG_Enemy
   m_EditorClassIdentifier: 
   weaponName: QBZ95SMG Enemy
-  weaponSprite: {fileID: 21300000, guid: dff74299f2cf7674eb05930ed6b07f8e, type: 3}
-  weaponShootPosition: {x: 1.125, y: 0.313, z: 0}
+  weaponSprite: {fileID: 21300026, guid: c14128091191e274c80b87d49c34bb7c, type: 3}
+  weaponShootPosition: {x: 1.125, y: -0.21, z: 0}
   weaponCurrentAmmo: {fileID: 11400000, guid: 1208047644fcaf646862ed3dc44bb3c9, type: 2}
   weaponShootEffect: {fileID: 11400000, guid: 5ee8cb6bdd4bd9648a692b8f65f47d5f, type: 2}
   weaponFiringSoundEffect: {fileID: 11400000, guid: 6bfa7cec3425c32499a4738bbddc2b54, type: 2}

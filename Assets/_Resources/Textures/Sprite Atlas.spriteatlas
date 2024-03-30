@@ -3578,6 +3578,7 @@ SpriteAtlas:
     - 9f85801b0af27ef4f8d15a54f15b2c8d: 7190452457150670605
     - 9f85801b0af27ef4f8d15a54f15b2c8d: 1974755586638083894
     - 9f85801b0af27ef4f8d15a54f15b2c8d: -2105693420547768211
+    - e3ac311bc2c984f4e83093d07914ac1d: 21300000
     - 18a7922bda75930478a07cfef73a7cc8: 2799827067003567997
     - 18a7922bda75930478a07cfef73a7cc8: -40580732274528884
     - 18a7922bda75930478a07cfef73a7cc8: 7380348250187836339
@@ -8870,6 +8871,7 @@ SpriteAtlas:
   - {fileID: 7190452457150670605, guid: 9f85801b0af27ef4f8d15a54f15b2c8d, type: 3}
   - {fileID: 1974755586638083894, guid: 9f85801b0af27ef4f8d15a54f15b2c8d, type: 3}
   - {fileID: -2105693420547768211, guid: 9f85801b0af27ef4f8d15a54f15b2c8d, type: 3}
+  - {fileID: 21300000, guid: e3ac311bc2c984f4e83093d07914ac1d, type: 3}
   - {fileID: 2799827067003567997, guid: 18a7922bda75930478a07cfef73a7cc8, type: 3}
   - {fileID: -40580732274528884, guid: 18a7922bda75930478a07cfef73a7cc8, type: 3}
   - {fileID: 7380348250187836339, guid: 18a7922bda75930478a07cfef73a7cc8, type: 3}
@@ -14161,6 +14163,7 @@ SpriteAtlas:
   - TheGeneralRollDown_1
   - TheGeneralRollDown_2
   - TheGeneralRollDown_3
+  - Shotgun_Boss 1
   - black_cobalt11_1
   - black_cobalt11_0
   - black_cobalt11_3

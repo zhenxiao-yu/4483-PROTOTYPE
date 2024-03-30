@@ -5,8 +5,6 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class Environment : MonoBehaviour
 {
-    // Attach this class to environment game objects whose lighting gets faded in
-
     #region Header References
     [Space(10)]
     [Header("References")]

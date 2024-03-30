@@ -370,6 +370,42 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
     }
 
+    private IEnumerator DisplayLevelStartDialog(int dungeonLevelListIndex)
+    {
+        // Fade In to focus attention
+        StartCoroutine(Fade(0f, 1f, 0f, Color.black));
+
+        // Temporarily disable player control during the dialog
+        GetPlayer().playerControl.DisablePlayer();
+
+        // Retrieve and display the level's introductory dialog
+        DungeonLevelSO currentLevel = dungeonLevelList[dungeonLevelListIndex];
+        string levelIntroText = GetLevelIntroText(currentLevel);
+        yield return StartCoroutine(DisplayMessageRoutine(levelIntroText, Color.white, 5f));
+
+        // Optionally, include additional instructions or narrative elements
+        string additionalMessage = GetAdditionalLevelMessage(currentLevel);
+        if (!string.IsNullOrEmpty(additionalMessage))
+        {
+            yield return StartCoroutine(DisplayMessageRoutine(additionalMessage, Color.yellow, 4f));
+        }
+
+        // Re-enable player control and fade back to the game
+        GetPlayer().playerControl.EnablePlayer();
+        StartCoroutine(Fade(1f, 0f, 2f, Color.clear));
+    }
+
+    private string GetLevelIntroText(DungeonLevelSO currentLevel)
+    {
+        
+        return $"Level {currentDungeonLevelListIndex + 1}";
+    }
+
+    private string GetAdditionalLevelMessage(DungeonLevelSO currentLevel)
+    {
+        return "Find the key hidden within the shadows to unlock the path forward.";
+    }
+
 
     private IEnumerator DisplayMessageRoutine(string text, Color textColor, float displaySeconds)
     {

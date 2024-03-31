@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64a00a35ce5bbe34da0995589e385360, type: 3}
-  m_Name: WeaponDetails_Revolver
+  m_Name: WeaponDetails_Colt45
   m_EditorClassIdentifier: 
-  weaponName: Revolver
+  weaponName: COLT 45
   weaponSprite: {fileID: 21300000, guid: 29bc0107bc11191468ed7d175994fb5b, type: 3}
   weaponShootPosition: {x: 1.15, y: 0.329, z: 0}
   weaponCurrentAmmo: {fileID: 11400000, guid: c8da3159e19356c4581c72b618cedbb4, type: 2}

@@ -122,7 +122,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         if (multiplierArgs.multiplier)
         {
             scoreMultiplier++;
-        } else
+        }
+        else
         {
             scoreMultiplier--;
         }
@@ -181,7 +182,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
                 break;
 
-          
+
             case GameState.engagingEnemies:
 
                 if (Input.GetKeyDown(KeyCode.Escape))
@@ -191,7 +192,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
                 break;
 
 
-        
+
             case GameState.dungeonOverviewMap:
                 if (Input.GetKeyUp(KeyCode.Tab))
                 {
@@ -290,7 +291,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             }
         }
 
-    
+
         if ((isDungeonClearOfRegularEnemies && bossRoom == null) || (isDungeonClearOfRegularEnemies && bossRoom.room.isClearedOfEnemies))
         {
             if (currentDungeonLevelListIndex < dungeonLevelList.Count - 1)
@@ -350,10 +351,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         }
         StaticEventHandler.CallRoomChangedEvent(currentRoom);
         player.gameObject.transform.position = new Vector3((currentRoom.lowerBounds.x + currentRoom.upperBounds.x) / 2f, (currentRoom.lowerBounds.y + currentRoom.upperBounds.y) / 2f, 0f);
-
         player.gameObject.transform.position = HelperUtilities.GetSpawnPositionNearestToPlayer(player.gameObject.transform.position);
-
-        // Display Dungeon Level Text
         StartCoroutine(DisplayDungeonLevelText());
     }
 
@@ -365,25 +363,16 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         string messageText = "LEVEL " + (currentDungeonLevelListIndex + 1).ToString() + "\n\n" + dungeonLevelList[currentDungeonLevelListIndex].levelName.ToUpper();
         yield return StartCoroutine(DisplayMessageRoutine(messageText, Color.white, 2f));
         GetPlayer().playerControl.EnablePlayer();
-        // Fade In
         yield return StartCoroutine(Fade(1f, 0f, 2f, Color.red));
-
     }
 
     private IEnumerator DisplayLevelStartDialog(int dungeonLevelListIndex)
     {
-        // Fade In to focus attention
         StartCoroutine(Fade(0f, 1f, 0f, Color.black));
-
-        // Temporarily disable player control during the dialog
         GetPlayer().playerControl.DisablePlayer();
-
-        // Retrieve and display the level's introductory dialog
         DungeonLevelSO currentLevel = dungeonLevelList[dungeonLevelListIndex];
         string levelIntroText = GetLevelIntroText(currentLevel);
         yield return StartCoroutine(DisplayMessageRoutine(levelIntroText, Color.white, 5f));
-
-        // Optionally, include additional instructions or narrative elements
         string additionalMessage = GetAdditionalLevelMessage(currentLevel);
         if (!string.IsNullOrEmpty(additionalMessage))
         {
@@ -397,7 +386,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
     private string GetLevelIntroText(DungeonLevelSO currentLevel)
     {
-        
+
         return $"Level {currentDungeonLevelListIndex + 1}";
     }
 
@@ -415,7 +404,6 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         if (displaySeconds > 0f)
         {
             float timer = displaySeconds;
-
             while (timer > 0f && !Input.GetKeyDown(KeyCode.Return))
             {
                 timer -= Time.deltaTime;

@@ -896,7 +896,7 @@ Camera:
     x: 0
     y: 0
     width: 1
-    height: 0.99975586
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -1216,7 +1216,7 @@ GameObject:
   - component: {fileID: 986506646}
   - component: {fileID: 986506645}
   m_Layer: 5
-  m_Name: DifficultyButton
+  m_Name: LevelSelectButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

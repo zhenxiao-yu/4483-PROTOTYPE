@@ -263,6 +263,22 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
     }
 
+    public void StartGameAtLevel(int levelIndex)
+    {
+        if (levelIndex < 0 || levelIndex >= dungeonLevelList.Count)
+        {
+            Debug.LogError("Invalid level index");
+            return;
+        }
+
+        currentDungeonLevelListIndex = levelIndex;
+        gameState = GameState.gameStarted;
+        gameScore = 0;
+        scoreMultiplier = 1;
+        StartCoroutine(Fade(0f, 1f, 0f, Color.black));
+        PlayDungeonLevel(currentDungeonLevelListIndex);
+    }
+
     public void SetCurrentRoom(Room room)
     {
         previousRoom = currentRoom;

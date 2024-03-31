@@ -16,12 +16,10 @@ public class LevelSelector : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Ensure the scene loaded is the game scene
         if (scene.name == "MainGameScene")
         {
-            // Use the stored level index
             GameManager.Instance.StartGameAtLevel(levelToLoadIndex);
-            SceneManager.sceneLoaded -= OnSceneLoaded; // Unsubscribe to avoid this being called again unnecessarily
+            SceneManager.sceneLoaded -= OnSceneLoaded; 
         }
     }
 }

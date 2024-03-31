@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e4922637f808a04e836fdf543da98e4, type: 3}
   m_Name: MovementDetails_Slizzard
   m_EditorClassIdentifier: 
-  minMoveSpeed: 2
-  maxMoveSpeed: 4
+  minMoveSpeed: 2.44
+  maxMoveSpeed: 4.62
   rollSpeed: 0
   rollDistance: 0
   rollCooldownTime: 0

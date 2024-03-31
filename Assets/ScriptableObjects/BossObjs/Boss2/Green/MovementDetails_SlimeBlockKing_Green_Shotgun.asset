@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e4922637f808a04e836fdf543da98e4, type: 3}
   m_Name: MovementDetails_SlimeBlockKing_Green_Shotgun
   m_EditorClassIdentifier: 
-  minMoveSpeed: 2
-  maxMoveSpeed: 3
+  minMoveSpeed: 2.56
+  maxMoveSpeed: 3.75
   rollSpeed: 0
   rollDistance: 0
   rollCooldownTime: 0

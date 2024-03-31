@@ -16,7 +16,7 @@ public class MainMenuUI : MonoBehaviour
     #region Tooltip
     [Tooltip("Populate with the quit button")]
     #endregion
-    [SerializeField] private GameObject difficultyButton;
+    [SerializeField] private GameObject levelButton;
     #region Tooltip
     [Tooltip("Populate with the difficulty button")]
     #endregion
@@ -35,6 +35,7 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private GameObject returnToMainMenuButton;
     private bool isInstructionSceneLoaded = false;
     private bool isHighScoresSceneLoaded = false;
+    private bool isLevelSelectionSceneLoaded = false;
 
     private void Start()
     {
@@ -55,7 +56,7 @@ public class MainMenuUI : MonoBehaviour
         quitButton.SetActive(false);
         highScoresButton.SetActive(false);
         instructionsButton.SetActive(false);
-        difficultyButton.SetActive(false);
+        levelButton.SetActive(false);
         isHighScoresSceneLoaded = true;
         SceneManager.UnloadSceneAsync("CharacterSelectorScene");
         returnToMainMenuButton.SetActive(true);
@@ -76,10 +77,15 @@ public class MainMenuUI : MonoBehaviour
         {
             SceneManager.UnloadSceneAsync("InstructionsScene");
             isInstructionSceneLoaded = false;
+        } 
+        else if (isLevelSelectionSceneLoaded)
+        {
+            SceneManager.UnloadSceneAsync("LevelSelectScene");
+            isLevelSelectionSceneLoaded = false;
         }
         playButton.SetActive(true);
         quitButton.SetActive(true);
-        difficultyButton.SetActive(true);
+        levelButton.SetActive(true);
         highScoresButton.SetActive(true);
         instructionsButton.SetActive(true);
 
@@ -92,12 +98,26 @@ public class MainMenuUI : MonoBehaviour
         playButton.SetActive(false);
         quitButton.SetActive(false);
         highScoresButton.SetActive(false);
-        difficultyButton.SetActive(false);
+        levelButton.SetActive(false);
         instructionsButton.SetActive(false);
         isInstructionSceneLoaded = true;
         SceneManager.UnloadSceneAsync("CharacterSelectorScene");
         returnToMainMenuButton.SetActive(true);
         SceneManager.LoadScene("InstructionsScene", LoadSceneMode.Additive);
+    }
+
+    public void LoadLevelSelection()
+    {
+        // Hide main menu buttons
+        playButton.SetActive(false);
+        quitButton.SetActive(false);
+        highScoresButton.SetActive(false);
+        instructionsButton.SetActive(false);
+        levelButton.SetActive(false);
+        isLevelSelectionSceneLoaded = true;
+        SceneManager.UnloadSceneAsync("CharacterSelectorScene");
+        returnToMainMenuButton.SetActive(true);
+        SceneManager.LoadScene("LevelSelectScene", LoadSceneMode.Additive);
     }
 
 
@@ -116,7 +136,7 @@ public class MainMenuUI : MonoBehaviour
         HelperUtilities.ValidateCheckNullValue(this, nameof(highScoresButton), highScoresButton);
         HelperUtilities.ValidateCheckNullValue(this, nameof(instructionsButton), instructionsButton);
         HelperUtilities.ValidateCheckNullValue(this, nameof(returnToMainMenuButton), returnToMainMenuButton);
-        HelperUtilities.ValidateCheckNullValue(this, nameof(difficultyButton), difficultyButton);
+        HelperUtilities.ValidateCheckNullValue(this, nameof(levelButton), levelButton);
     }
 #endif
     #endregion

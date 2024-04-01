@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Media;
 using UnityEngine;
 
 public class SpinTrap : MonoBehaviour
@@ -24,11 +23,11 @@ public class SpinTrap : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        SoundPlayer player = other.gameObject.GetComponent<SoundPlayer>();
+        //SoundPlayer player = other.gameObject.GetComponent<SoundPlayer>();
 
-        if (player != null)
-        {
+        //if (player != null)
+        //{
            // player.ChangeHealth(damageValue);
-        }
+        //}
     }
 }

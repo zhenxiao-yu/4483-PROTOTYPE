@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Media;
 using UnityEngine;
 
 public class ZombieController : MonoBehaviour
@@ -57,12 +56,12 @@ public class ZombieController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        SoundPlayer player = other.gameObject.GetComponent<SoundPlayer>();
+        //SoundPlayer player = other.gameObject.GetComponent<SoundPlayer>();
         SpinTrap spinTrap = other.gameObject.GetComponent<SpinTrap>();
-        if (player != null)
-        {
+        //if (player != null)
+        //{
             //player.ChangeHealth(-1);
-        }
+        //}
         if (spinTrap != null)
         {
             Dead();

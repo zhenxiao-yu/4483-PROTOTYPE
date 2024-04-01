@@ -32,6 +32,6 @@ public class ScoreUI : MonoBehaviour
 
     private void UpdateScoreText(ScoreChangedArgs scoreChangedArgs)
     {
-        scoreTextTMP.text = $"SOULS FREED: {scoreChangedArgs.score.ToString("###,###0")}\n\nHIT BONUS: x{scoreChangedArgs.multiplier}";
+        scoreTextTMP.text = $"SOULS FREED: {scoreChangedArgs.score.ToString("###,###0")}\n\nHIT MULTIPLIER: x{scoreChangedArgs.multiplier}";
     }
 }

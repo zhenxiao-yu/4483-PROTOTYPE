@@ -382,34 +382,34 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         yield return StartCoroutine(Fade(1f, 0f, 2f, Color.red));
     }
 
-    private IEnumerator DisplayLevelStartDialog(int dungeonLevelListIndex)
-    {
-        StartCoroutine(Fade(0f, 1f, 0f, Color.black));
-        GetPlayer().playerControl.DisablePlayer();
-        DungeonLevelSO currentLevel = dungeonLevelList[dungeonLevelListIndex];
-        string levelIntroText = GetLevelIntroText(currentLevel);
-        yield return StartCoroutine(DisplayMessageRoutine(levelIntroText, Color.white, 5f));
-        string additionalMessage = GetAdditionalLevelMessage(currentLevel);
-        if (!string.IsNullOrEmpty(additionalMessage))
-        {
-            yield return StartCoroutine(DisplayMessageRoutine(additionalMessage, Color.yellow, 4f));
-        }
+    // private IEnumerator DisplayLevelStartDialog(int dungeonLevelListIndex)
+    // {
+    //     StartCoroutine(Fade(0f, 1f, 0f, Color.black));
+    //     GetPlayer().playerControl.DisablePlayer();
+    //     DungeonLevelSO currentLevel = dungeonLevelList[dungeonLevelListIndex];
+    //     string levelIntroText = GetLevelIntroText(currentLevel);
+    //     yield return StartCoroutine(DisplayMessageRoutine(levelIntroText, Color.white, 5f));
+    //     string additionalMessage = GetAdditionalLevelMessage(currentLevel);
+    //     if (!string.IsNullOrEmpty(additionalMessage))
+    //     {
+    //         yield return StartCoroutine(DisplayMessageRoutine(additionalMessage, Color.yellow, 4f));
+    //     }
 
-        // Re-enable player control and fade back to the game
-        GetPlayer().playerControl.EnablePlayer();
-        StartCoroutine(Fade(1f, 0f, 2f, Color.clear));
-    }
+    //     // Re-enable player control and fade back to the game
+    //     GetPlayer().playerControl.EnablePlayer();
+    //     StartCoroutine(Fade(1f, 0f, 2f, Color.clear));
+    // }
 
-    private string GetLevelIntroText(DungeonLevelSO currentLevel)
-    {
+    // private string GetLevelIntroText(DungeonLevelSO currentLevel)
+    // {
 
-        return $"Level {currentDungeonLevelListIndex + 1}";
-    }
+    //     return $"Level {currentDungeonLevelListIndex + 1}";
+    // }
 
-    private string GetAdditionalLevelMessage(DungeonLevelSO currentLevel)
-    {
-        return "Find the key hidden within the shadows to unlock the path forward.";
-    }
+    // private string GetAdditionalLevelMessage(DungeonLevelSO currentLevel)
+    // {
+    //     return "Find the key hidden within the shadows to unlock the path forward.";
+    // }
 
 
     private IEnumerator DisplayMessageRoutine(string text, Color textColor, float displaySeconds)
@@ -549,12 +549,10 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         {
             enemy.gameObject.SetActive(false);
         }
-        yield return StartCoroutine(DisplayMessageRoutine("NOOO! YOU'RE TRAPPED IN THE VOID...\n THE WHISPERS, THEY'RE CLOSING IN... \n\n CAN YOU FEEL THEM?", Color.red, 5f));
-        yield return StartCoroutine(DisplayMessageRoutine("DETECTIVE " + GameResources.Instance.currentPlayer.playerName.ToUpper() + ", THE LABYRINTH CONSUMES YOU... \n UNSEEN HORRORS, BORN OF MADNESS AND THE VOID,\n WHISPER YOUR DOOM.\n ESCAPE IS BUT A FLEETING DREAM.", Color.red, 4f));
+        yield return StartCoroutine(DisplayMessageRoutine("NOOO! YOU'RE TRAPPED IN THE VOID...\n THE WHISPERS, THEY'RE CLOSING IN... \n\n\n CAN YOU FEEL THEM?", Color.red, 5f));
+        yield return StartCoroutine(DisplayMessageRoutine("DETECTIVE " + GameResources.Instance.currentPlayer.playerName.ToUpper() + ", THE LABYRINTH CONSUMES YOU... \n\n UNSEEN HORRORS, BORN OF MADNESS AND THE VOID,\n WHISPER YOUR DOOM.\n ESCAPE IS BUT A FLEETING DREAM.", Color.red, 6f));
         yield return StartCoroutine(DisplayMessageRoutine("YOU SCORED " + gameScore.ToString("###,###0") + "\n\n" + rankText, Color.white, 4f));
         yield return StartCoroutine(DisplayMessageRoutine("PRESS [RETURN] TO RESTART THE GAME", Color.white, 0f));
-
-        // Set game state to restart game
         gameState = GameState.restartGame;
     }
 

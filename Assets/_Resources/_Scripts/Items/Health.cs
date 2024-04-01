@@ -23,6 +23,8 @@ public class Health : MonoBehaviour
     private SpriteRenderer spriteRenderer = null;
     private const float spriteFlashInterval = 0.2f;
     private WaitForSeconds WaitForSecondsSpriteFlashInterval = new WaitForSeconds(spriteFlashInterval);
+    private bool hallucinationEffectActive = false;
+    private WorldTime worldTime;
 
     [HideInInspector] public bool isDamageable = true;
     [HideInInspector] public Enemy enemy;
@@ -30,6 +32,7 @@ public class Health : MonoBehaviour
     private void Awake()
     {
         healthEvent = GetComponent<HealthEvent>();
+        worldTime = FindObjectOfType<WorldTime>();
     }
 
     private void Start()
@@ -76,6 +79,9 @@ public class Health : MonoBehaviour
         if (isDamageable && !isRolling)
         {
             currentHealth -= damageAmount;
+
+
+
             CallHealthEvent(damageAmount);
             PostHitImmunity();
             if (healthBar != null)
@@ -83,6 +89,22 @@ public class Health : MonoBehaviour
                 healthBar.SetHealthBarValue((float)currentHealth / (float)startingHealth);
             }
         }
+    }
+
+    void ActivateHallucinationEffect(float duration)
+    {
+        if (worldTime != null)
+        {
+            hallucinationEffectActive = true;
+            worldTime.ActivateHallucinationEffect(duration);
+            StartCoroutine(ResetHallucinationFlagAfterDelay(duration));
+        }
+    }
+
+    private IEnumerator ResetHallucinationFlagAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        hallucinationEffectActive = false;
     }
 
 
@@ -96,6 +118,10 @@ public class Health : MonoBehaviour
             if (immunityCoroutine != null)
                 StopCoroutine(immunityCoroutine);
             immunityCoroutine = StartCoroutine(PostHitImmunityRoutine(immunityTime, spriteRenderer));
+            if (!hallucinationEffectActive)
+            {
+                ActivateHallucinationEffect(5); // Activate for 5 seconds
+            }
         }
 
     }

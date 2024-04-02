@@ -1,6 +1,6 @@
 
 
-
+![](https://img.itch.zone/aW1nLzE1NjAzNDQxLnBuZw==/original/BPUdiw.png)
 
 # Descent into Madness (v1.0.2 Game Demo)
 
@@ -77,7 +77,7 @@
 
 **Chrome/Safari/Firefox/Edge.**
 
-
+<iframe frameborder="0" src="https://itch.io/embed/2619103" width="552" height="167"><a href="https://markyu615.itch.io/descent-into-madness">Descent into Madness by markyu615</a></iframe>
 
 ### System Requirements
 

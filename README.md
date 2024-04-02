@@ -73,11 +73,25 @@
 
 **"Descent into Madness" is available to play directly on your web browser through itch.io**
 
-**Visit the  Link: https://markyu615.itch.io/descent-into-madness and run the game in** 
+**Visit the  Link  https://markyu615.itch.io/descent-into-madness and run the game in** 
 
 **Chrome/Safari/Firefox/Edge.**
 
 <iframe frameborder="0" src="https://itch.io/embed/2619103" width="552" height="167"><a href="https://markyu615.itch.io/descent-into-madness">Descent into Madness by markyu615</a></iframe>
+
+
+
+#### Running Locally
+
+To run the game locally on a Window10/11 environment, navigate to Project Root Folder,
+
+then **Build** > click on **Descent into Madness.exe.**
+
+Or 
+
+Open Project Folder in **Unity Editor 2022.3.9f1**
+
+
 
 ### System Requirements
 
@@ -129,7 +143,7 @@
 
 - **Unity Version:** 2022.3.9f1
 
-- Visual Studio 2022
+- **Visual Studio 2022**
 
 - **Assets:** 
 

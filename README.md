@@ -1,4 +1,4 @@
-# 4483 PROTOTYPE: Descent into Madness
+## Descent into Madness
 
 https://markyu615.itch.io/4483-prototype-mark-yu
 

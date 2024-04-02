@@ -1,79 +1,131 @@
-## Descent into Madness
-
-https://markyu615.itch.io/4483-prototype-mark-yu
-
-## Description
-
-"Descent into Madness" is a  2D rogue-like horror shooter that transports players into the eerie realm of Karnoxia. In this nightmarish dimension, players face relentless pursuit from monstrous entities while battling a steadily declining sanity. As the protagonist, players must navigate through a maze-like labyrinth, scavenging for resources and upgrading their gear to outwit increasingly formidable enemies and conquer challenging bosses. Survival hinges not only on managing health but also on preserving sanity, which warps perception and intensifies the surreal horrors of Karnoxia.
-
-**"SLICES" that are included in the current prototype.**
-
-- Procedural random room generation for levels 1 and 2
-- UI minimap
-- enemy pathfinding (A-star)
-- 4 enemy types: melee, shooting (rapid straight), shooting (pattern1), shooting(pattern 2)
-- Custom room (small, medium, huge, bonus, hallway) templates for maze generation 
-- 2D Sound Manager 
-- Openable Chests with random loot drop distribution 
-- 3 Playable characters
-- Scene Transition animations 
-- Multiple Firearm options with different stats
-- flippable tables
-- breakable vases
-- Post Processing, Lighting, Filter using Unity Universal Render Pipeline
-- Pause UI, Scoreboard UI, Main Menu UI, Instructions UI, Play HUD 
-- Horror visuals / SFX
-- Enemies get more challenging at each level (balance)
-- Game Manager for tracking start, win, scores, hit combo multiplier and lose.
-- Some assets animated
-- Working Score/Local Leaderboard System
-- UI for sanity mechanic
-- Shooting VFX 
-
-**Working In Progress for future release:** 
-
-- Storyline (Dialog System UI)
-- Quest System (Open Doors upon completing objectives)
-- Simple Inventory system for holding Puzzle items 
-- Puzzle Designs 
-- Trap (Prefab deisign)
-- Level SelectION UI
-- Better Enemy AI / Animation
-- Boss Level
-- The sanity Level  decreases when a player takes damage and changes the player's perception (changes post-processingg filter value)
-- More room templates for more complex puzzles
-- Ability to change game difficulty (maybe)
-- Ability to change character loadout (maybe)
-
-## Installation
-
-"Descent into Madness" is available to play directly on your web browser through itch.io
-
- Visit Link: https://markyu615.itch.io/4483-prototype-mark-yu and run the game in Chrome/Safari/Firefox/Edge.
-
-## How to Play
-
-Only the first two levels are mapped out for the prototype; try to clear them by killing all enemies that spawn in the randomly generated maze. 
 
 
 
-[ESC] to PAUSE    [TAB] to open the map
 
-[WASD] to move character 
+# Descent into Madness (v1.0.2 Game Demo)
 
-Use the mouse to aim and shoot at approaching enemies.
+**Group  Members:** 
 
-[E] to open chest    [mouse left click] to shoot
+**Mahira Moftah, mmoftah3@uwo.ca, 251079470**
 
-[Space/Shift] + [WASD] to Dodge & Roll
+**Dana Al-kwifi, dalkwifi@uwo.ca, 251090520**
 
-[R] to reload     [M] to open map
+**Madeline Veysey, mveysey@uwo.ca, 251075599**
 
-[ESC] to Pause (when not in battle)
+**ZhenXiao Yu, zyu347@uwo.ca, 251088539**
 
-Survive against waves of enemies in rooms while exploring the hauntingly atmospheric world of Karnoxia.
+**DEMO LINK: https://markyu615.itch.io/descent-into-madness**
 
-## Resources & Tools
+
+
+### **Features included** 
+
+- Procedural room generation for levels 1 - 5: each playthrough is different due to randomly generated levels from a list of "rooms templates" (chest, hallway, small, medium, large rooms)
+- 2d top-down player movement and "point and shoot" mechanic 
+- Sanity Mechanic: a hallucination filter is enabled for a short duration whenever a creature damages the player. 
+- In-game mini-map
+- 	-  Hold [TAB] when no enemies are nearby to open Map UI 
+  	-  Click on an area to fast travel to the location on the map)
+- Unique Enemy Designs: 
+  - pathfinding (A-star)
+  - Aiming (enemies/bosses will not shoot until it has a line of sight on the player)
+- 2D Sound Manager with UI for adjusting the BGM and SFX volume 
+- Openable Chests (Press [E]) with random drop distribution (empty, ammo, health, new weapon, etc.)
+- 3 Playable character classes with different stats (The Detective, The Engineer, The Chad)
+- Scene Transition animations, room transition effects 
+- Multiple Firearm options are found in chests with different stats: 
+  - fire rate 
+  - magazine capacity 
+  - reload time
+  - pattern (bullet, laser, rocket, shotgun)
+- Interactive Environment; 
+  1. Player/Enemy Contact with Vases and Barrels will trigger breaking animation.
+  2. Press [E] to flip tables; flipped tables can be pushed & used to block enemy projectiles
+  3. Damageable props  to increase overall realism
+
+- Post Processing, dynamic 2D Lighting, visual filter using Unity Universal Render Pipeline
+
+- Functional UI components: 
+  - Pause
+  - Leaderboard 
+  - Main Menu 
+  -  Instructions 
+  -  Level Selection
+  - Player HUD 
+
+- Horror visuals and an eerier atmosphere 
+
+- Enemies get more challenging at each level, increasing in the following attributes:
+  - Min speed
+  - Max speed 
+  - Number of concurrent enemies that spawn at once
+  - fire rate
+  - Total  number of min enemies for each room type 
+  - Total number of max enemies for each room type 
+
+- Game Manager is used to track start, win, scores, hit combo multiplier, and lose.
+
+- Boss rooms at the end of each level (unlocked after all other rooms in the level are cleared), beat it to move on to the next level.
+
+
+
+### Installation
+
+**"Descent into Madness" is available to play directly on your web browser through itch.io**
+
+**Visit the  Link: https://markyu615.itch.io/descent-into-madness and run the game in** 
+
+**Chrome/Safari/Firefox/Edge.**
+
+
+
+### System Requirements
+
+##### Minimum:
+
+- OS: Windows 7/8/10 (64-bit)
+- Processor: Intel Core i3 or equivalent
+- Memory: 4 GB RAM
+- Graphics: NVIDIA GeForce GTX 660 or equivalent
+- Storage: 2 GB available space
+
+##### Recommended:
+
+- OS: Windows 10 (64-bit)
+- Processor: Intel Core i5 or equivalent
+- Memory: 8 GB RAM
+- Graphics: NVIDIA GeForce GTX 960 or equivalent
+- Storage: 2 GB available space
+
+### How to Play
+
+**[W/A/S/D]** to move the character up, left, down, right.
+
+- Move the mouse cursor to aim and shoot at approaching enemies.
+
+**[E]** to open chest and flip tables
+
+**[mouse left click/hold]**  to shoot once/rapidly
+
+**[Space/Shift]** + **[W/A/S/D]** to Dodge & Roll in that direction (if there's enough space for rolling)
+
+**[R]** to reload     
+
+**[TAB]** to open the map when the current room has no enemies 
+
+**[ESC]** to pause when the current  room has no enemies 
+
+
+
+**Tips:** 
+
+**Use [Num 1 - 9 ] to switch between weapons that have been picked up.** 
+
+**You are invincible to enemy damage when rolling but cannot shoot/reload** 
+
+
+
+### Resources & Tools
 
 - **Unity Version:** 2022.3.9f1
 
@@ -109,5 +161,5 @@ Survive against waves of enemies in rooms while exploring the hauntingly atmosph
 
   Pixel Heroes Editor: https://assetstore.unity.com/packages/2d/characters/pixel-heroes-editor-250116
 
-  
+
 
